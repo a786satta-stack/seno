@@ -20,8 +20,8 @@ const GAME_TIMINGS = [
   { name: 'दिसावर', time: '05:10 AM', emoji: '⭐' },
 ]
 const KHAIWALS = [
-  { title: 'सीधे सट्टा कंपनी का No 1 खाईवाल', name: 'AZAD BHAI KHAIWAL',  phone: '917056996422', color: '#FF6B00' },
-  { title: 'सीधे सट्टा कंपनी का No 1 खाईवाल', name: 'RADHE BHAI KHAIWAL', phone: '919812507515', color: '#7C3AED' },
+  { title: 'सीधे सट्टा कंपनी का No 1 खाईवाल', name: 'AZAD BHAI KHAIWAL',  phone: '919812507515', color: '#FF6B00' },
+  { title: 'सीधे सट्टा कंपनी का No 1 खाईवाल', name: 'RADHE BHAI KHAIWAL', phone: '917056996422', color: '#7C3AED' },
 ]
 
 function WaIcon({ size = 28 }: { size?: number }) {
