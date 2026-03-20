@@ -1,6 +1,6 @@
 export default function SocialChannels({
-  whatsappLink = 'https://wa.me/919999999999',
-  telegramLink = 'https://t.me/yourchannel',
+  whatsappLink = 'https://whatsapp.com/channel/0029VbCHriDFCCoWbzrHyk0b',
+  telegramLink = 'https://t.me/a786result',
 }: { whatsappLink?: string; telegramLink?: string }) {
   return (
     <div className="mt-4 mb-4 space-y-3">
