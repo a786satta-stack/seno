@@ -78,7 +78,7 @@ export default function KhaiwaalSection() {
                       <CheckCircle2 size={10} /> TRUSTED
                     </span>
                     <span style={{ background: '#FFFDE7', border: '1.5px solid #FFE000', borderRadius: 100, padding: '2px 9px', fontFamily: 'JetBrains Mono,monospace', fontSize: 10, fontWeight: 700, color: '#c9a800' }}>
-                      12 GAMES
+                      15 GAMES
                     </span>
                   </div>
                 </div>
@@ -113,7 +113,7 @@ export default function KhaiwaalSection() {
                 fontFamily: 'Bebas Neue,sans-serif', fontSize: 13, letterSpacing: '.1em', color: '#111100',
               }}>
                 <span>GAME NAME</span>
-                <span>RESULT TIME</span>
+                <span>GAME TIME</span>
               </div>
 
               {/* Rows */}
