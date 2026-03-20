@@ -1,0 +1,23 @@
+const SECTIONS = [
+  { title: 'A786 – Results & Charts', content: `A786 is a well-known website for A786 / Satta Matka results and charts followed in India for many years. It is a traditional number-based result lottery game played before India's independence. Over time, A786 gained popularity in Delhi, Uttar Pradesh, Rajasthan, and Haryana, becoming widely known for its charts, result updates, and record history.` },
+  { title: 'What is A786?', content: `A786 is a popular platform among satta players for a786 or satta Matka information like satta number result charts and previous years satta record charts. Players visit to view updated results and analyze old and new record charts displayed in a clear and organized way.` },
+  { title: 'How A786 Results Work?', content: `A786 charts usually mean the entry or name you see on the result chart page of the game. These charts show the latest info for a specific time. The Number Satta results are shown in a simple format, making it easy for players to check for the latest satta results.` },
+  { title: 'Understanding A786 Charts', content: `Checking A786 charts is straightforward. The chart page shows results in a simple, step-by-step manner listed by day, month, and year. Many players check older charts to compare past results with recent ones and understand patterns, keeping everything transparent.` },
+  { title: 'Games Covered on A786', content: `We provide information about all famous satta games: Disawar, Faridabad, Ghaziabad, Delhi Bazar, Shri Ganesh, Hindustan, Gali Satta, Sadar Bazar, Alwar Satta and more. Charts and results for all games are updated regularly.` },
+  { title: 'Why Users Trust A786?', content: `Every satta player looks for a website that provides clear explanations, reliable results, updated charts, and smooth user experience. Our main aim is to provide information in a simple and transparent manner. Well-organized records, clean design, and regularly updated charts help players stay updated without problems.` },
+]
+
+export default function SeoContent() {
+  return (
+    <div className="mt-8">
+      {SECTIONS.map((s, i) => (
+        <div key={i} className="mb-1">
+          <div className="section-bar"><h2>{s.title.toUpperCase()}</h2></div>
+          <div className="px-4 py-4" style={{ background: '#fff', borderBottom: '2px solid #FFE000' }}>
+            <p style={{ fontSize: 14, lineHeight: 1.7, color: '#3a3000' }}>{s.content}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
