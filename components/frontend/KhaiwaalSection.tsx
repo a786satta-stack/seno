@@ -129,7 +129,7 @@ export default function KhaiwaalSection() {
               {/* Count badge */}
               <div style={{ padding: '10px 16px', background: '#FFFDE7', textAlign: 'center', borderTop: '1px solid #FFE000' }}>
                 <span style={{ fontFamily: 'Bebas Neue,sans-serif', fontSize: 15, letterSpacing: '.1em', color: '#c9a800' }}>
-                  👑 {k.name} — 12 GAMES DAILY 👑
+                  👑 {k.name} — 15 GAMES DAILY 👑
                 </span>
               </div>
             </div>

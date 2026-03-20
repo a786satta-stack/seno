@@ -108,6 +108,7 @@ export default async function HomePage() {
           <div className="hidden md:grid md:grid-cols-3 md:gap-6 md:items-start">
             <div className="md:col-span-2 space-y-4">
               {bannerSection}
+              <NextThreeGames />
               {disclaimer}
               {numberUpdate}
               {resultsGrid}
