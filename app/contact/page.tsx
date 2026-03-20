@@ -34,11 +34,11 @@ export default function ContactPage() {
             <div>
               <p className="text-muted text-xs font-mono uppercase tracking-widest mb-2">Email Us</p>
               <a
-                href="mailto:your@email.com"
+                href="mailto:a786satta@gmail.com"
                 className="font-mono text-primary text-lg font-bold"
                 style={{ color: '#FFD700' }}
               >
-                your@email.com
+                a786satta@gmail.com
               </a>
               <p className="text-muted text-xs font-mono mt-1">Contact for any info at the above email</p>
             </div>
@@ -49,7 +49,7 @@ export default function ContactPage() {
             <div>
               <p className="text-muted text-xs font-mono uppercase tracking-widest mb-3">WhatsApp</p>
               <a
-                href="https://wa.me/919999999999"
+                href="https://wa.me/919485519859"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-6 py-3 rounded-full font-bold text-white"
