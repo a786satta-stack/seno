@@ -4,23 +4,26 @@ import { Clock, Bell } from 'lucide-react'
 
 // Static game data as requested
 const STATIC_GAMES = [
-  { name: 'SADAR BAZAR', time: '01:20 PM', color: '#f59e0b' },
-  { name: 'GWALIOR', time: '02:20 PM', color: '#ef4444' },
-  { name: 'DELHI BAZAR', time: '02:50 PM', color: '#3b82f6' },
-  { name: 'DELHI MATKA', time: '03:20 PM', color: '#22c55e' },
-  { name: 'SHRI GANESH', time: '04:20 PM', color: '#a855f7' },
-  { name: 'AGRA', time: '05:20 PM', color: '#f97316' },
-  { name: 'FARIDABAD', time: '05:50 PM', color: '#06b6d4' },
-  { name: 'ALWAR', time: '07:20 PM', color: '#ec4899' },
-  { name: 'GHAZIABAD', time: '08:50 PM', color: '#f59e0b' },
-  { name: 'DWARKA', time: '10:15 PM', color: '#ef4444' },
-  { name: 'GALI', time: '11:20 PM', color: '#3b82f6' },
-  { name: 'DISAWAR', time: '05:00 AM', color: '#22c55e' },
+  { name: 'कुबेर सिटी', time: '12:15 PM', color: '#f59e0b' },
+  { name: 'नोएडा सिटी', time: '12:50 PM', color: '#ef4444' },
+  { name: 'सदर बाजार', time: '01:40 PM', color: '#3b82f6' },
+  { name: 'ग्वालियर', time: '02:40 PM', color: '#22c55e' },
+  { name: 'दिल्ली बाजार', time: '03:10 PM', color: '#a855f7' },
+  { name: 'निज़ामाबाद', time: '03:40 PM', color: '#f97316' },
+  { name: 'श्री गणेश', time: '04:40 PM', color: '#06b6d4' },
+  { name: 'सुल्तानपुर', time: '05:30 PM', color: '#ec4899' },
+  { name: 'फरीदाबाद', time: '06:10 PM', color: '#f59e0b' },
+  { name: 'अलवर', time: '07:30 PM', color: '#ef4444' },
+  { name: 'शिवपुरी', time: '08:30 PM', color: '#3b82f6' },
+  { name: 'गाजियाबाद', time: '09:30 PM', color: '#22c55e' },
+  { name: 'हरियाणा सिटी', time: '10:35 PM', color: '#a855f7' },
+  { name: 'गली', time: '11:30 PM', color: '#f97316' },
+  { name: 'दिसावर (DS)', time: '05:10 AM', color: '#06b6d4' },
 ]
 
 export default function NextThreeGames() {
   const [upcoming, setUpcoming] = useState<typeof STATIC_GAMES>([])
-
+l.
   useEffect(() => {
     const getNextGames = () => {
       const now = new Date()
