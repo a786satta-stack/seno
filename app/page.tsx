@@ -6,6 +6,7 @@ import { Result } from '@/models/Result'
 import Header from '@/components/frontend/Header'
 import ResultCard from '@/components/frontend/ResultCard'
 import LastUpdatedBanner from '@/components/frontend/LastUpdatedBanner'
+import NextThreeGames from '@/components/frontend/NextThreeGames'
 import NumberUpdateSection from '@/components/frontend/NumberUpdateSection'
 import SocialChannels from '@/components/frontend/SocialChannels'
 import KhaiwaalSection from '@/components/frontend/KhaiwaalSection'
@@ -93,6 +94,7 @@ export default async function HomePage() {
           {/* ── MOBILE ── */}
           <div className="md:hidden">
             {bannerSection}
+            <NextThreeGames />
             <SocialChannels whatsappLink="https://whatsapp.com/channel/0029VbCHriDFCCoWbzrHyk0b" telegramLink="https://t.me/a786result" />
             <KhaiwaalSection />
             {numberUpdate}
