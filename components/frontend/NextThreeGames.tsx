@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import { Clock, Bell } from 'lucide-react'
 
-// Updated static game data with Hindi names and correct timings
+// Corrected STATIC_GAMES with your Hindi names and exact times
 const STATIC_GAMES = [
   { name: 'कुबेर सिटी', time: '12:15 PM', color: '#f59e0b' },
   { name: 'नोएडा सिटी', time: '12:50 PM', color: '#ef4444' },
@@ -27,23 +27,27 @@ export default function NextThreeGames() {
   useEffect(() => {
     const getNextGames = () => {
       const now = new Date()
+      // Current time in minutes from start of day
       const currentTimeInMinutes = now.getHours() * 60 + now.getMinutes()
 
       const parsedGames = STATIC_GAMES.map(game => {
-        const [time, modifier] = game.time.split(' ')
-        let [hours, minutes] = time.split(':').map(Number)
+        const [timeStr, modifier] = game.time.split(' ')
+        let [hours, minutes] = timeStr.split(':').map(Number)
+        
+        // Convert to 24-hour format for correct comparison
         if (modifier === 'PM' && hours !== 12) hours += 12
         if (modifier === 'AM' && hours === 12) hours = 0
+        
         return { ...game, totalMinutes: hours * 60 + minutes }
       })
 
-      // Sort games by time to handle calculations correctly
+      // 1. Sort games by time
       parsedGames.sort((a, b) => a.totalMinutes - b.totalMinutes)
 
-      // Find games today that haven't happened yet
+      // 2. Get games that are later than RIGHT NOW
       let filtered = parsedGames.filter(g => g.totalMinutes > currentTimeInMinutes)
       
-      // If less than 3 games left today, wrap around to the start of the list
+      // 3. If day is ending and we have less than 3 games, wrap around to next morning
       if (filtered.length < 3) {
         filtered = [...filtered, ...parsedGames].slice(0, 3)
       } else {
@@ -60,7 +64,6 @@ export default function NextThreeGames() {
 
   return (
     <div className="mt-4 mb-4">
-      {/* Updated Heading to Hindi */}
       <div className="section-bar mb-3">
         <h2>आने वाले गेम्स</h2>
       </div>
@@ -91,7 +94,6 @@ export default function NextThreeGames() {
                 </div>
               </div>
 
-              {/* Updated Badge to Hindi */}
               <span className="badge-waiting animate-shimmer" style={{ fontSize: '10px' }}>
                 जल्द आ रहा है
               </span>
