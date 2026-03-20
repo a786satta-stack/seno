@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import { Clock, Bell } from 'lucide-react'
 
-// Static game data as requested
+// Updated static game data with Hindi names and correct timings
 const STATIC_GAMES = [
   { name: 'कुबेर सिटी', time: '12:15 PM', color: '#f59e0b' },
   { name: 'नोएडा सिटी', time: '12:50 PM', color: '#ef4444' },
@@ -23,7 +23,7 @@ const STATIC_GAMES = [
 
 export default function NextThreeGames() {
   const [upcoming, setUpcoming] = useState<typeof STATIC_GAMES>([])
-l.
+
   useEffect(() => {
     const getNextGames = () => {
       const now = new Date()
@@ -37,10 +37,13 @@ l.
         return { ...game, totalMinutes: hours * 60 + minutes }
       })
 
-      // Find games today that haven't happened yet, or games tomorrow
+      // Sort games by time to handle calculations correctly
+      parsedGames.sort((a, b) => a.totalMinutes - b.totalMinutes)
+
+      // Find games today that haven't happened yet
       let filtered = parsedGames.filter(g => g.totalMinutes > currentTimeInMinutes)
       
-      // If less than 3 games left today, wrap around to the start of the list (tomorrow's early games)
+      // If less than 3 games left today, wrap around to the start of the list
       if (filtered.length < 3) {
         filtered = [...filtered, ...parsedGames].slice(0, 3)
       } else {
@@ -51,21 +54,21 @@ l.
     }
 
     getNextGames()
-    const interval = setInterval(getNextGames, 60000) // Update every minute
+    const interval = setInterval(getNextGames, 60000) 
     return () => clearInterval(interval)
   }, [])
 
   return (
     <div className="mt-4 mb-4">
-      {/* Exact same section bar theme */}
+      {/* Updated Heading to Hindi */}
       <div className="section-bar mb-3">
-        <h2>UPCOMING GAMES</h2>
+        <h2>आने वाले गेम्स</h2>
       </div>
 
       <div className="grid grid-cols-1 gap-3">
         {upcoming.map((game, i) => (
           <div 
-            key={game.name} 
+            key={`${game.name}-${i}`} 
             className={`sk-card animate-slide-up d${i + 1}`} 
             style={{ borderLeft: `6px solid ${game.color}` }}
           >
@@ -83,18 +86,17 @@ l.
                   </h3>
                   <div className="flex items-center gap-1 mt-1 font-mono text-xs" style={{ color: '#c9a800' }}>
                     <Clock size={12} />
-                    <span>OPENING AT {game.time}</span>
+                    <span>खुलने का समय: {game.time}</span>
                   </div>
                 </div>
               </div>
 
-              {/* Status Badge */}
-              <span className="badge-waiting animate-shimmer">
-                UPCOMING
+              {/* Updated Badge to Hindi */}
+              <span className="badge-waiting animate-shimmer" style={{ fontSize: '10px' }}>
+                जल्द आ रहा है
               </span>
             </div>
             
-            {/* Bottom progress bar mimic */}
             <div className="h-1 w-full bg-surface-2">
               <div 
                 className="h-full animate-shimmer" 
