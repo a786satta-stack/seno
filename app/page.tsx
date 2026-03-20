@@ -93,9 +93,9 @@ export default async function HomePage() {
           {/* ── MOBILE ── */}
           <div className="md:hidden">
             {bannerSection}
-            {numberUpdate}
             <SocialChannels whatsappLink="https://whatsapp.com/channel/0029VbCHriDFCCoWbzrHyk0b" telegramLink="https://t.me/a786result" />
             <KhaiwaalSection />
+            {numberUpdate}
             {disclaimer}
             {resultsGrid}
             <SeoContent />
