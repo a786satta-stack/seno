@@ -113,7 +113,7 @@ export default function KhaiwaalSection() {
                 fontFamily: 'Bebas Neue,sans-serif', fontSize: 13, letterSpacing: '.1em', color: '#111100',
               }}>
                 <span>GAME NAME</span>
-                <span>GAME TIME</span>
+                <span>RESULT TIME</span>
               </div>
 
               {/* Rows */}
