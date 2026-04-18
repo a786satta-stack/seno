@@ -6,6 +6,7 @@ export default function Footer() {
     { href: '/privacy', label: 'Privacy Policy' },
     { href: '/terms', label: 'Terms & Conditions' },
     { href: '/contact', label: 'Contact' },
+    { href: '/blog', label: 'Blog' },
   ]
   return (
     <footer className="mt-8">
