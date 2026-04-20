@@ -5,14 +5,15 @@ import { dbConnect } from '@/lib/db'
 import { Result } from '@/models/Result'
 
 // PATCH /api/results/[id] — toggle published
-export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PATCH(req: NextRequest, context: { params: Promise<{ id: string }> }) {
   const session = await getServerSession(authOptions)
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
+  const { id } = await context.params
   await dbConnect()
   const body = await req.json()
   const result = await Result.findByIdAndUpdate(
-    params.id,
+    id,
     { isPublished: body.isPublished, publishedAt: body.isPublished ? new Date() : undefined },
     { new: true }
   )
@@ -21,11 +22,12 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
 }
 
 // DELETE /api/results/[id]
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(req: NextRequest, context: { params: Promise<{ id: string }> }) {
   const session = await getServerSession(authOptions)
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
+  const { id } = await context.params
   await dbConnect()
-  await Result.findByIdAndDelete(params.id)
+  await Result.findByIdAndDelete(id)
   return NextResponse.json({ success: true })
 }

@@ -15,10 +15,11 @@ function isObjectId(s: string) {
   return /^[0-9a-fA-F]{24}$/.test(s)
 }
 
-export default async function GameChartPage({ params }: { params: { slug: string } }) {
+export default async function GameChartPage({ params }: { params: Promise<{ slug: string }> }) {
   await dbConnect()
 
-  const slugParam = decodeURIComponent(params.slug)
+  const { slug } = await params
+  const slugParam = decodeURIComponent(slug)
 
   // 1. Try exact slug
   let game: any = await Game.findOne({ slug: slugParam, isActive: true }).lean()
@@ -43,13 +44,23 @@ export default async function GameChartPage({ params }: { params: { slug: string
   const year = now.getFullYear()
   const month = now.getMonth() + 1
 
-  const chartDates = Array.from({ length: 3 }, (_, i) => {
+  const START_YEAR = 2024
+  const START_MONTH = 1
+  const totalMonths =
+    (year - START_YEAR) * 12 + (month - START_MONTH + 1)
+  const chartDates = Array.from({ length: totalMonths }, (_, i) => {
     const d = new Date(year, month - 1 - i, 1)
     return { year: d.getFullYear(), month: d.getMonth() + 1 }
   })
 
   const [charts, recentResults] = await Promise.all([
-    MonthlyChart.find({ gameSlug: game.slug, $or: chartDates }).lean(),
+    MonthlyChart.find({
+      gameSlug: game.slug,
+      $or: [
+        { year: { $gt: 2024 } },
+        { year: 2024, month: { $gte: 1 } },
+      ],
+    }).lean(),
     Result.find({ gameSlug: game.slug, isPublished: true }).sort({ resultDate: -1 }).limit(14).lean(),
   ])
 
