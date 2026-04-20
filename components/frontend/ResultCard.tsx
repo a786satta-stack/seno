@@ -7,52 +7,58 @@ interface Props {
   yesterdayResult?: string | null
 }
 
-function isAsciiSlug(slug: string) { return /^[a-z0-9-]+$/.test(slug) }
+function isAsciiSlug(slug: string) {
+  return /^[a-z0-9-]+$/.test(slug)
+}
 
 export default function ResultCard({ game, todayResult, yesterdayResult }: Props) {
   const has = !!todayResult
   const up = has && !!yesterdayResult && parseInt(todayResult!) > parseInt(yesterdayResult)
   const dn = has && !!yesterdayResult && parseInt(todayResult!) < parseInt(yesterdayResult)
+
+  // Use slug if it's ASCII-safe, otherwise fall back to _id
   const chartHref = isAsciiSlug(game.slug) ? `/chart/${game.slug}` : `/chart/${game._id}`
 
   return (
-    <div className="sk-card animate-slide-up touch-fb" style={{ display: 'flex', flexDirection: 'column' }}>
-      {/* color top bar */}
-      <div style={{ height: 5, background: `linear-gradient(90deg,${game.color},#FFE000 60%,${game.color})` }} />
+    <div className="sk-card animate-slide-up touch-fb">
+      <div className="h-1.5 w-full" style={{ background: `linear-gradient(90deg,${game.color},#FFE000 60%,${game.color})` }} />
 
-      <div style={{ padding: '14px 14px 12px', flex: 1 }}>
-        {/* header */}
-        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 8, marginBottom: 12 }}>
-          <div style={{ minWidth: 0, flex: 1 }}>
-            <h3 style={{ fontFamily: 'Bebas Neue,sans-serif', fontSize: 22, letterSpacing: '0.06em', color: '#111100', lineHeight: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+      <div className="p-4">
+        <div className="flex items-start justify-between mb-3 gap-2">
+          <div className="min-w-0 flex-1">
+            <h3 className="font-display leading-none tracking-wide truncate" style={{ fontSize: 26, color: '#111100' }}>
               {(game.name || '').toUpperCase()}
             </h3>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginTop: 4, fontFamily: 'JetBrains Mono,monospace', fontSize: 10, color: '#c9a800' }}>
-              <Clock size={9} strokeWidth={2} />
+            <div className="flex items-center gap-1 mt-1 font-mono text-[11px]" style={{ color: '#c9a800' }}>
+              <Clock size={10} strokeWidth={2} />
+              {/* Only showing game open time */}
               <span>{game.openTime}</span>
             </div>
           </div>
           {has
-            ? <span className="badge-declared" style={{ flexShrink: 0 }}>✓ DECLARED</span>
-            : <span className="badge-waiting animate-shimmer" style={{ flexShrink: 0 }}>⏳ WAITING</span>}
+            ? <span className="badge-declared shrink-0">✓ DECLARED</span>
+            : <span className="badge-waiting shrink-0 animate-shimmer">⏳ WAITING</span>}
         </div>
 
-        {/* numbers */}
-        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+        <div className="flex items-end justify-between">
+          {/* Yesterday Number shifted to the Left */}
           <div>
-            <div style={{ fontFamily: 'JetBrains Mono,monospace', fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#c9a800', marginBottom: 2 }}>Yesterday</div>
-            <div style={{ fontFamily: 'JetBrains Mono,monospace', fontSize: 28, fontWeight: 700, color: '#d4b000' }}>
+            <div className="font-mono text-[10px] uppercase tracking-widest mb-0.5" style={{ color: '#c9a800' }}>Yesterday</div>
+            <div style={{ fontFamily: 'JetBrains Mono,monospace', fontSize: 32, fontWeight: 700, color: '#d4b000' }}>
               {yesterdayResult ?? '--'}
             </div>
           </div>
-          <div style={{ textAlign: 'right' }}>
-            <div style={{ fontFamily: 'JetBrains Mono,monospace', fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#c9a800', marginBottom: 2 }}>Today</div>
+
+          {/* Today Number shifted to the Right */}
+          <div className="text-right">
+            <div className="font-mono text-[10px] uppercase tracking-widest mb-0.5" style={{ color: '#c9a800' }}>Today</div>
             {has
-              ? <div className="animate-number-flip result-number" style={{ fontSize: 64 }}>{todayResult}</div>
-              : <div className="result-number" style={{ fontSize: 48, color: '#FFE57F' }}>--</div>}
+              ? <div className="animate-number-flip result-number" style={{ fontSize: 72 }}>{todayResult}</div>
+              : <div className="result-number" style={{ fontSize: 56, color: '#FFE57F' }}>--</div>}
+            
             {has && yesterdayResult && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: 3, justifyContent: 'flex-end', marginTop: 3, fontFamily: 'JetBrains Mono,monospace', fontSize: 10, fontWeight: 700, color: up ? '#16a34a' : dn ? '#ef4444' : '#c9a800' }}>
-                {up ? <TrendingUp size={11}/> : dn ? <TrendingDown size={11}/> : null}
+              <div className={`flex items-center gap-1 justify-end mt-1 text-xs font-mono font-bold ${up ? 'text-green-600' : dn ? 'text-red-500' : 'text-yellow-600'}`}>
+                {up ? <TrendingUp size={12}/> : dn ? <TrendingDown size={12}/> : null}
                 {up ? '↑ UP' : dn ? '↓ DOWN' : '= SAME'}
               </div>
             )}
@@ -60,10 +66,9 @@ export default function ResultCard({ game, todayResult, yesterdayResult }: Props
         </div>
       </div>
 
-      {/* chart link */}
       <a href={chartHref}
-        className="touch-fb"
-        style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '10px 0', fontFamily: 'JetBrains Mono,monospace', fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', background: '#FFFDE7', color: '#c9a800', textDecoration: 'none', borderTop: '2px solid #FFE000' }}>
+        className="flex items-center justify-center gap-2 py-3 font-mono text-sm font-bold tracking-widest border-t-2 border-yellow-300 touch-fb"
+        style={{ background: '#FFFDE7', color: '#c9a800', textDecoration: 'none' }}>
         📊 VIEW CHART →
       </a>
     </div>

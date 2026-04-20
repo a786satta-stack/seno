@@ -1,6 +1,8 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { Clock, Bell } from 'lucide-react'
 
+// Corrected STATIC_GAMES with your Hindi names and exact times
 const STATIC_GAMES = [
   { name: 'कुबेर सिटी', time: '12:15 PM', color: '#f59e0b' },
   { name: 'नोएडा सिटी', time: '12:50 PM', color: '#ef4444' },
@@ -23,53 +25,85 @@ export default function NextThreeGames() {
   const [upcoming, setUpcoming] = useState<typeof STATIC_GAMES>([])
 
   useEffect(() => {
-    const update = () => {
+    const getNextGames = () => {
       const now = new Date()
-      const cur = now.getHours() * 60 + now.getMinutes()
-      const parsed = STATIC_GAMES.map(g => {
-        const [ts, mer] = g.time.split(' ')
-        let [h, m] = ts.split(':').map(Number)
-        if (mer === 'PM' && h !== 12) h += 12
-        if (mer === 'AM' && h === 12) h = 0
-        return { ...g, mins: h * 60 + m }
-      }).sort((a, b) => a.mins - b.mins)
-      let f = parsed.filter(g => g.mins > cur)
-      if (f.length < 3) f = [...f, ...parsed].slice(0, 3)
-      else f = f.slice(0, 3)
-      setUpcoming(f)
+      // Current time in minutes from start of day
+      const currentTimeInMinutes = now.getHours() * 60 + now.getMinutes()
+
+      const parsedGames = STATIC_GAMES.map(game => {
+        const [timeStr, modifier] = game.time.split(' ')
+        let [hours, minutes] = timeStr.split(':').map(Number)
+        
+        // Convert to 24-hour format for correct comparison
+        if (modifier === 'PM' && hours !== 12) hours += 12
+        if (modifier === 'AM' && hours === 12) hours = 0
+        
+        return { ...game, totalMinutes: hours * 60 + minutes }
+      })
+
+      // 1. Sort games by time
+      parsedGames.sort((a, b) => a.totalMinutes - b.totalMinutes)
+
+      // 2. Get games that are later than RIGHT NOW
+      let filtered = parsedGames.filter(g => g.totalMinutes > currentTimeInMinutes)
+      
+      // 3. If day is ending and we have less than 3 games, wrap around to next morning
+      if (filtered.length < 3) {
+        filtered = [...filtered, ...parsedGames].slice(0, 3)
+      } else {
+        filtered = filtered.slice(0, 3)
+      }
+
+      setUpcoming(filtered)
     }
-    update()
-    const id = setInterval(update, 60000)
-    return () => clearInterval(id)
+
+    getNextGames()
+    const interval = setInterval(getNextGames, 60000) 
+    return () => clearInterval(interval)
   }, [])
 
   return (
-    <div>
-      <div className="section-bar" style={{ marginBottom: 14 }}><h2>आने वाले गेम्स</h2></div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+    <div className="mt-4 mb-4">
+      <div className="section-bar mb-3">
+        <h2>आने वाले गेम्स</h2>
+      </div>
+
+      <div className="grid grid-cols-1 gap-3">
         {upcoming.map((game, i) => (
-          <div key={`${game.name}-${i}`} className={`sk-card animate-slide-up d${i + 1}`}
-            style={{ borderLeft: `5px solid ${game.color}` }}>
-            <div style={{ padding: '12px 14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 12, minWidth: 0 }}>
-                <div style={{
-                  width: 38, height: 38, borderRadius: 10, flexShrink: 0,
-                  background: `linear-gradient(135deg, ${game.color}, #FFE000)`,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18
-                }}>🔔</div>
-                <div style={{ minWidth: 0 }}>
-                  <div style={{ fontFamily: 'Bebas Neue,sans-serif', fontSize: 22, letterSpacing: '0.06em', color: '#111100', lineHeight: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+          <div 
+            key={`${game.name}-${i}`} 
+            className={`sk-card animate-slide-up d${i + 1}`} 
+            style={{ borderLeft: `6px solid ${game.color}` }}
+          >
+            <div className="p-4 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div 
+                  className="w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-lg"
+                  style={{ background: `linear-gradient(135deg, ${game.color}, #FFE000)` }}
+                >
+                  <Bell size={20} />
+                </div>
+                <div>
+                  <h3 className="font-display text-2xl leading-none tracking-wide" style={{ color: '#111100' }}>
                     {game.name}
-                  </div>
-                  <div style={{ fontFamily: 'JetBrains Mono,monospace', fontSize: 10, color: '#c9a800', marginTop: 3 }}>
-                    ⏰ खुलने का समय: {game.time}
+                  </h3>
+                  <div className="flex items-center gap-1 mt-1 font-mono text-xs" style={{ color: '#c9a800' }}>
+                    <Clock size={12} />
+                    <span>खुलने का समय: {game.time}</span>
                   </div>
                 </div>
               </div>
-              <span className="badge-waiting animate-shimmer" style={{ flexShrink: 0, fontSize: 9 }}>जल्द</span>
+
+              <span className="badge-waiting animate-shimmer" style={{ fontSize: '10px' }}>
+                जल्द आ रहा है
+              </span>
             </div>
-            <div style={{ height: 3, background: '#FFF9C4' }}>
-              <div className="animate-shimmer" style={{ width: '35%', height: '100%', background: game.color, opacity: 0.5 }} />
+            
+            <div className="h-1 w-full bg-surface-2">
+              <div 
+                className="h-full animate-shimmer" 
+                style={{ width: '40%', background: game.color, opacity: 0.6 }} 
+              />
             </div>
           </div>
         ))}

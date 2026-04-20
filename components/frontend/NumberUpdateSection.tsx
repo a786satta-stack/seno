@@ -9,31 +9,34 @@ export default function NumberUpdateSection({ games, todayMap, yesterdayMap }: P
   if (!list.length) return null
 
   return (
-    <div>
-      <div className="section-bar" style={{ marginBottom: 14 }}><h2>NUMBER UPDATE</h2></div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+    <div className="mt-4 mb-4">
+      <div className="section-bar mb-3"><h2>NUMBER UPDATE</h2></div>
+      <div className="space-y-2">
         {list.map((g, i) => {
           const yest = yesterdayMap[g.slug]
           const today = todayMap[g.slug]
           return (
             <div key={g.slug} className={`sk-card animate-slide-up d${i + 1}`}>
-              <div style={{ height: 4, background: `linear-gradient(90deg,${g.color},#FFE000)` }} />
-              <div style={{ padding: '14px 16px' }}>
-                <div style={{ fontFamily: 'Bebas Neue,sans-serif', fontSize: 20, letterSpacing: '0.08em', color: '#111100', textAlign: 'center', marginBottom: 2 }}>
-                  {(g.name || '').toUpperCase()}
+              <div className="h-1 w-full" style={{ background: `linear-gradient(90deg,${g.color},#FFE000)` }} />
+              <div className="py-3 px-4 text-center">
+                <div className="font-display tracking-widest mb-1" style={{ fontSize: 22, color: '#111100' }}>
+                  {(g.name || "").toUpperCase()}
                 </div>
-                <div style={{ fontFamily: 'JetBrains Mono,monospace', fontSize: 10, color: '#c9a800', textAlign: 'center', marginBottom: 12 }}>
-                  {g.openTime}
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16 }}>
-                  <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontFamily: 'JetBrains Mono,monospace', fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#7a6a10', marginBottom: 4 }}>Yesterday</div>
-                    <div style={{ fontFamily: 'JetBrains Mono,monospace', fontSize: 34, fontWeight: 700, color: '#111100' }}>{yest ?? '--'}</div>
+                <div className="font-mono text-[11px] mb-2" style={{ color: '#c9a800' }}>{g.openTime}</div>
+                <div className="flex items-center justify-center gap-3">
+                  <div className="text-center">
+                    <div className="font-mono text-[9px] uppercase tracking-widest mb-0.5" style={{ color: '#7a6a10' }}>Yesterday</div>
+                    <span style={{ fontFamily: 'JetBrains Mono,monospace', fontSize: 36, fontWeight: 700, color: '#111100' }}>
+                      {yest ?? '--'}
+                    </span>
                   </div>
-                  <div style={{ width: 36, height: 36, borderRadius: 10, background: '#16a34a', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 18, boxShadow: '0 3px 10px rgba(22,163,74,.35)', flexShrink: 0 }}>➡</div>
-                  <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontFamily: 'JetBrains Mono,monospace', fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#7a6a10', marginBottom: 4 }}>Today</div>
-                    <div style={{ fontFamily: 'JetBrains Mono,monospace', fontSize: 34, fontWeight: 700, color: today ? '#c9a800' : '#FFE57F' }}>{today ?? '--'}</div>
+                  <div className="flex items-center justify-center w-10 h-10 rounded-xl text-white font-bold text-xl"
+                    style={{ background: '#16a34a', boxShadow: '0 3px 10px rgba(22,163,74,.4)' }}>➡</div>
+                  <div className="text-center">
+                    <div className="font-mono text-[9px] uppercase tracking-widest mb-0.5" style={{ color: '#7a6a10' }}>Today</div>
+                    <span style={{ fontFamily: 'JetBrains Mono,monospace', fontSize: 36, fontWeight: 700, color: today ? '#c9a800' : '#FFE57F' }}>
+                      {today ?? '--'}
+                    </span>
                   </div>
                 </div>
               </div>
