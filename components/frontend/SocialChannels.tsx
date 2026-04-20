@@ -3,13 +3,11 @@ export default function SocialChannels({
   telegramLink = 'https://t.me/a786result',
 }: { whatsappLink?: string; telegramLink?: string }) {
   return (
-    <div className="mt-4 mb-4 space-y-3">
+    <div className="space-y-4">
 
-      {/* ── WhatsApp card ── */}
+      {/* WhatsApp card */}
       <div className="sk-card p-4" style={{ borderColor: '#25D366' }}>
-
-        {/* Hindi info box — matching reference image */}
-        <div className="rounded-xl p-4 mb-4 text-center space-y-2"
+        <div className="rounded-2xl p-4 mb-4 text-center space-y-2"
           style={{ background: '#FFE000', border: '2px solid #c9a800' }}>
           <p className="font-semibold text-base leading-snug" style={{ fontFamily: 'Rajdhani,sans-serif', color: '#111100' }}>
             नमस्कार साथियो
@@ -22,11 +20,9 @@ export default function SocialChannels({
           </p>
         </div>
 
-        {/* WhatsApp button */}
         <a href={whatsappLink} target="_blank" rel="noopener noreferrer"
           className="flex items-center justify-center gap-3 py-3.5 px-6 rounded-2xl font-bold text-white touch-fb"
           style={{ background: '#111100', boxShadow: '0 6px 20px rgba(0,0,0,.3)', textDecoration: 'none' }}>
-          {/* WhatsApp icon */}
           <svg width="36" height="36" viewBox="0 0 32 32" fill="none">
             <circle cx="16" cy="16" r="16" fill="#25D366"/>
             <path d="M16 6C10.477 6 6 10.477 6 16c0 1.846.497 3.574 1.364 5.062L6 26l5.09-1.335A9.96 9.96 0 0016 26c5.523 0 10-4.477 10-10S21.523 6 16 6Z" fill="white"/>
@@ -38,8 +34,7 @@ export default function SocialChannels({
           </div>
         </a>
 
-        {/* NOTE disclaimer */}
-        <div className="mt-3 rounded-xl px-4 py-3 text-center"
+        <div className="mt-3 rounded-2xl px-4 py-3 text-center"
           style={{ background: '#FFF9C4', border: '1.5px solid #FFE000' }}>
           <p className="font-bold text-sm leading-relaxed" style={{ fontFamily: 'Rajdhani,sans-serif', color: '#c0392b' }}>
             NOTE: इस नंबर पर लीक गेम नही मिलता गेम लेने वाले भाई कॉल या मैसेज न करें।
@@ -47,10 +42,10 @@ export default function SocialChannels({
         </div>
       </div>
 
-      {/* ── Telegram card ── */}
+      {/* Telegram card */}
       <div className="sk-card p-4" style={{ borderColor: '#0088cc' }}>
-        <p className="text-center font-mono text-xs mb-3 leading-relaxed" style={{ color: '#3a3000' }}>
-          "Now Telegram players can also join our Telegram channel to get results quickly and receive superfast results."
+        <p className="text-center font-mono text-xs mb-4 leading-relaxed px-2" style={{ color: '#3a3000' }}>
+          &quot;Now Telegram players can also join our Telegram channel to get results quickly and receive superfast results.&quot;
         </p>
         <a href={telegramLink} target="_blank" rel="noopener noreferrer"
           className="flex items-center justify-center gap-3 py-3.5 px-6 rounded-2xl font-bold text-white touch-fb"

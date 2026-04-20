@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react'
 import { Clock, Bell } from 'lucide-react'
 
-// Corrected STATIC_GAMES with your Hindi names and exact times
 const STATIC_GAMES = [
   { name: 'कुबेर सिटी', time: '12:15 PM', color: '#f59e0b' },
   { name: 'नोएडा सिटी', time: '12:50 PM', color: '#ef4444' },
@@ -27,83 +26,62 @@ export default function NextThreeGames() {
   useEffect(() => {
     const getNextGames = () => {
       const now = new Date()
-      // Current time in minutes from start of day
       const currentTimeInMinutes = now.getHours() * 60 + now.getMinutes()
-
       const parsedGames = STATIC_GAMES.map(game => {
         const [timeStr, modifier] = game.time.split(' ')
         let [hours, minutes] = timeStr.split(':').map(Number)
-        
-        // Convert to 24-hour format for correct comparison
         if (modifier === 'PM' && hours !== 12) hours += 12
         if (modifier === 'AM' && hours === 12) hours = 0
-        
         return { ...game, totalMinutes: hours * 60 + minutes }
       })
-
-      // 1. Sort games by time
       parsedGames.sort((a, b) => a.totalMinutes - b.totalMinutes)
-
-      // 2. Get games that are later than RIGHT NOW
       let filtered = parsedGames.filter(g => g.totalMinutes > currentTimeInMinutes)
-      
-      // 3. If day is ending and we have less than 3 games, wrap around to next morning
       if (filtered.length < 3) {
         filtered = [...filtered, ...parsedGames].slice(0, 3)
       } else {
         filtered = filtered.slice(0, 3)
       }
-
       setUpcoming(filtered)
     }
-
     getNextGames()
-    const interval = setInterval(getNextGames, 60000) 
+    const interval = setInterval(getNextGames, 60000)
     return () => clearInterval(interval)
   }, [])
 
   return (
-    <div className="mt-4 mb-4">
-      <div className="section-bar mb-3">
-        <h2>आने वाले गेम्स</h2>
-      </div>
-
+    <div>
+      <div className="section-bar mb-4"><h2>आने वाले गेम्स</h2></div>
       <div className="grid grid-cols-1 gap-3">
         {upcoming.map((game, i) => (
-          <div 
-            key={`${game.name}-${i}`} 
-            className={`sk-card animate-slide-up d${i + 1}`} 
-            style={{ borderLeft: `6px solid ${game.color}` }}
+          <div
+            key={`${game.name}-${i}`}
+            className={`sk-card animate-slide-up d${i + 1}`}
+            style={{ borderLeft: `5px solid ${game.color}` }}
           >
-            <div className="p-4 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div 
-                  className="w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-lg"
+            <div className="p-4 flex items-center justify-between gap-3">
+              <div className="flex items-center gap-3 min-w-0">
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center text-white shrink-0"
                   style={{ background: `linear-gradient(135deg, ${game.color}, #FFE000)` }}
                 >
-                  <Bell size={20} />
+                  <Bell size={18} />
                 </div>
-                <div>
-                  <h3 className="font-display text-2xl leading-none tracking-wide" style={{ color: '#111100' }}>
+                <div className="min-w-0">
+                  <h3 className="font-display text-2xl leading-none tracking-wide truncate" style={{ color: '#111100' }}>
                     {game.name}
                   </h3>
                   <div className="flex items-center gap-1 mt-1 font-mono text-xs" style={{ color: '#c9a800' }}>
-                    <Clock size={12} />
+                    <Clock size={11} />
                     <span>खुलने का समय: {game.time}</span>
                   </div>
                 </div>
               </div>
-
-              <span className="badge-waiting animate-shimmer" style={{ fontSize: '10px' }}>
+              <span className="badge-waiting animate-shimmer shrink-0" style={{ fontSize: '10px' }}>
                 जल्द आ रहा है
               </span>
             </div>
-            
-            <div className="h-1 w-full bg-surface-2">
-              <div 
-                className="h-full animate-shimmer" 
-                style={{ width: '40%', background: game.color, opacity: 0.6 }} 
-              />
+            <div className="h-1 w-full" style={{ background: '#FFF9C4' }}>
+              <div className="h-full animate-shimmer" style={{ width: '40%', background: game.color, opacity: 0.6 }} />
             </div>
           </div>
         ))}

@@ -15,15 +15,15 @@ export default function ResultCard({ game, todayResult, yesterdayResult }: Props
   const has = !!todayResult
   const up = has && !!yesterdayResult && parseInt(todayResult!) > parseInt(yesterdayResult)
   const dn = has && !!yesterdayResult && parseInt(todayResult!) < parseInt(yesterdayResult)
-
-  // Use slug if it's ASCII-safe, otherwise fall back to _id
   const chartHref = isAsciiSlug(game.slug) ? `/chart/${game.slug}` : `/chart/${game._id}`
 
   return (
-    <div className="sk-card animate-slide-up touch-fb">
+    <div className="sk-card animate-slide-up touch-fb" style={{ overflow: 'hidden' }}>
+      {/* color accent bar */}
       <div className="h-1.5 w-full" style={{ background: `linear-gradient(90deg,${game.color},#FFE000 60%,${game.color})` }} />
 
       <div className="p-4">
+        {/* header row */}
         <div className="flex items-start justify-between mb-3 gap-2">
           <div className="min-w-0 flex-1">
             <h3 className="font-display leading-none tracking-wide truncate" style={{ fontSize: 26, color: '#111100' }}>
@@ -31,8 +31,7 @@ export default function ResultCard({ game, todayResult, yesterdayResult }: Props
             </h3>
             <div className="flex items-center gap-1 mt-1 font-mono text-[11px]" style={{ color: '#c9a800' }}>
               <Clock size={10} strokeWidth={2} />
-              {/* Only showing game open time */}
-              <span>{game.openTime}</span>
+              <span>{game.openTime} – {game.closeTime}</span>
             </div>
           </div>
           {has
@@ -40,8 +39,8 @@ export default function ResultCard({ game, todayResult, yesterdayResult }: Props
             : <span className="badge-waiting shrink-0 animate-shimmer">⏳ WAITING</span>}
         </div>
 
+        {/* numbers row */}
         <div className="flex items-end justify-between">
-          {/* Yesterday Number shifted to the Left */}
           <div>
             <div className="font-mono text-[10px] uppercase tracking-widest mb-0.5" style={{ color: '#c9a800' }}>Yesterday</div>
             <div style={{ fontFamily: 'JetBrains Mono,monospace', fontSize: 32, fontWeight: 700, color: '#d4b000' }}>
@@ -49,13 +48,12 @@ export default function ResultCard({ game, todayResult, yesterdayResult }: Props
             </div>
           </div>
 
-          {/* Today Number shifted to the Right */}
           <div className="text-right">
             <div className="font-mono text-[10px] uppercase tracking-widest mb-0.5" style={{ color: '#c9a800' }}>Today</div>
             {has
               ? <div className="animate-number-flip result-number" style={{ fontSize: 72 }}>{todayResult}</div>
               : <div className="result-number" style={{ fontSize: 56, color: '#FFE57F' }}>--</div>}
-            
+
             {has && yesterdayResult && (
               <div className={`flex items-center gap-1 justify-end mt-1 text-xs font-mono font-bold ${up ? 'text-green-600' : dn ? 'text-red-500' : 'text-yellow-600'}`}>
                 {up ? <TrendingUp size={12}/> : dn ? <TrendingDown size={12}/> : null}
@@ -66,9 +64,10 @@ export default function ResultCard({ game, todayResult, yesterdayResult }: Props
         </div>
       </div>
 
+      {/* chart link */}
       <a href={chartHref}
-        className="flex items-center justify-center gap-2 py-3 font-mono text-sm font-bold tracking-widest border-t-2 border-yellow-300 touch-fb"
-        style={{ background: '#FFFDE7', color: '#c9a800', textDecoration: 'none' }}>
+        className="flex items-center justify-center gap-2 py-3 font-mono text-sm font-bold tracking-widest border-t-2 touch-fb"
+        style={{ background: '#FFFDE7', color: '#c9a800', textDecoration: 'none', borderColor: '#FFE000' }}>
         📊 VIEW CHART →
       </a>
     </div>

@@ -37,35 +37,36 @@ export default function LastUpdatedBanner({ gameName, resultNumber, gameOpenTime
   }, [gameOpenTime])
 
   return (
-    <div className="mb-4">
-      <div className="sk-card animate-pop-in" style={{ border: '2px solid #FFE000' }}>
-        <div className="gold-bar h-1.5 animate-shimmer" />
-        <div className="p-4">
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-2">
-              <span className="live-dot" />
-              <span className="font-mono text-xs font-bold tracking-widest text-green-700 uppercase">Latest Result</span>
-            </div>
-            <span className="font-mono text-[11px] px-2.5 py-1 rounded-full font-bold"
-              style={{ background: '#FFFDE7', color: '#c9a800', border: '1px solid #FFE000' }}>{ago}</span>
+    <div className="sk-card animate-pop-in" style={{ border: '2px solid #FFE000' }}>
+      <div className="gold-bar h-1.5 animate-shimmer" />
+      <div className="p-4">
+        {/* header */}
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2">
+            <span className="live-dot" />
+            <span className="font-mono text-xs font-bold tracking-widest text-green-700 uppercase">Latest Result</span>
           </div>
+          <span className="font-mono text-[11px] px-2.5 py-1 rounded-full font-bold"
+            style={{ background: '#FFFDE7', color: '#c9a800', border: '1px solid #FFE000' }}>{ago}</span>
+        </div>
 
-          <p className="font-mono text-xs mb-3 text-center py-2 rounded-xl"
-            style={{ color: '#7a6a10', background: '#FFFDE7', border: '1px solid #FFE000' }}>
-            हा भाई यही आती हे सबसे पहले खबर — रुको और देखो
-          </p>
+        {/* hindi tagline */}
+        <p className="font-mono text-xs mb-4 text-center py-2.5 rounded-xl"
+          style={{ color: '#7a6a10', background: '#FFFDE7', border: '1px solid #FFE000' }}>
+          हा भाई यही आती हे सबसे पहले खबर — रुको और देखो
+        </p>
 
-          <div className="flex items-center justify-between">
-            <div>
-              <div className="font-display tracking-widest leading-none" style={{ fontSize: 28, color: '#111100' }}>
-                {safeName.toUpperCase()}
-              </div>
-              <div className="font-mono text-xs mt-1 font-bold" style={{ color: '#c9a800' }}>{gameOpenTime}</div>
+        {/* result display */}
+        <div className="flex items-center justify-between">
+          <div>
+            <div className="font-display tracking-widest leading-none" style={{ fontSize: 28, color: '#111100' }}>
+              {safeName.toUpperCase()}
             </div>
-            <div className="text-right">
-              <div className="font-mono text-[10px] uppercase tracking-widest mb-1" style={{ color: '#7a6a10' }}>Result</div>
-              <div className="animate-number-flip result-number" style={{ fontSize: 76 }}>{resultNumber}</div>
-            </div>
+            <div className="font-mono text-xs mt-1 font-bold" style={{ color: '#c9a800' }}>{gameOpenTime}</div>
+          </div>
+          <div className="text-right">
+            <div className="font-mono text-[10px] uppercase tracking-widest mb-1" style={{ color: '#7a6a10' }}>Result</div>
+            <div className="animate-number-flip result-number" style={{ fontSize: 76 }}>{resultNumber}</div>
           </div>
         </div>
       </div>
