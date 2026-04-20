@@ -1,6 +1,5 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { Clock, Bell } from 'lucide-react'
 
 const STATIC_GAMES = [
   { name: 'कुबेर सिटी', time: '12:15 PM', color: '#f59e0b' },
@@ -24,64 +23,53 @@ export default function NextThreeGames() {
   const [upcoming, setUpcoming] = useState<typeof STATIC_GAMES>([])
 
   useEffect(() => {
-    const getNextGames = () => {
+    const update = () => {
       const now = new Date()
-      const currentTimeInMinutes = now.getHours() * 60 + now.getMinutes()
-      const parsedGames = STATIC_GAMES.map(game => {
-        const [timeStr, modifier] = game.time.split(' ')
-        let [hours, minutes] = timeStr.split(':').map(Number)
-        if (modifier === 'PM' && hours !== 12) hours += 12
-        if (modifier === 'AM' && hours === 12) hours = 0
-        return { ...game, totalMinutes: hours * 60 + minutes }
-      })
-      parsedGames.sort((a, b) => a.totalMinutes - b.totalMinutes)
-      let filtered = parsedGames.filter(g => g.totalMinutes > currentTimeInMinutes)
-      if (filtered.length < 3) {
-        filtered = [...filtered, ...parsedGames].slice(0, 3)
-      } else {
-        filtered = filtered.slice(0, 3)
-      }
-      setUpcoming(filtered)
+      const cur = now.getHours() * 60 + now.getMinutes()
+      const parsed = STATIC_GAMES.map(g => {
+        const [ts, mer] = g.time.split(' ')
+        let [h, m] = ts.split(':').map(Number)
+        if (mer === 'PM' && h !== 12) h += 12
+        if (mer === 'AM' && h === 12) h = 0
+        return { ...g, mins: h * 60 + m }
+      }).sort((a, b) => a.mins - b.mins)
+      let f = parsed.filter(g => g.mins > cur)
+      if (f.length < 3) f = [...f, ...parsed].slice(0, 3)
+      else f = f.slice(0, 3)
+      setUpcoming(f)
     }
-    getNextGames()
-    const interval = setInterval(getNextGames, 60000)
-    return () => clearInterval(interval)
+    update()
+    const id = setInterval(update, 60000)
+    return () => clearInterval(id)
   }, [])
 
   return (
     <div>
-      <div className="section-bar mb-4"><h2>आने वाले गेम्स</h2></div>
-      <div className="grid grid-cols-1 gap-3">
+      <div className="section-bar" style={{ marginBottom: 14 }}><h2>आने वाले गेम्स</h2></div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
         {upcoming.map((game, i) => (
-          <div
-            key={`${game.name}-${i}`}
-            className={`sk-card animate-slide-up d${i + 1}`}
-            style={{ borderLeft: `5px solid ${game.color}` }}
-          >
-            <div className="p-4 flex items-center justify-between gap-3">
-              <div className="flex items-center gap-3 min-w-0">
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center text-white shrink-0"
-                  style={{ background: `linear-gradient(135deg, ${game.color}, #FFE000)` }}
-                >
-                  <Bell size={18} />
-                </div>
-                <div className="min-w-0">
-                  <h3 className="font-display text-2xl leading-none tracking-wide truncate" style={{ color: '#111100' }}>
+          <div key={`${game.name}-${i}`} className={`sk-card animate-slide-up d${i + 1}`}
+            style={{ borderLeft: `5px solid ${game.color}` }}>
+            <div style={{ padding: '12px 14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12, minWidth: 0 }}>
+                <div style={{
+                  width: 38, height: 38, borderRadius: 10, flexShrink: 0,
+                  background: `linear-gradient(135deg, ${game.color}, #FFE000)`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18
+                }}>🔔</div>
+                <div style={{ minWidth: 0 }}>
+                  <div style={{ fontFamily: 'Bebas Neue,sans-serif', fontSize: 22, letterSpacing: '0.06em', color: '#111100', lineHeight: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                     {game.name}
-                  </h3>
-                  <div className="flex items-center gap-1 mt-1 font-mono text-xs" style={{ color: '#c9a800' }}>
-                    <Clock size={11} />
-                    <span>खुलने का समय: {game.time}</span>
+                  </div>
+                  <div style={{ fontFamily: 'JetBrains Mono,monospace', fontSize: 10, color: '#c9a800', marginTop: 3 }}>
+                    ⏰ खुलने का समय: {game.time}
                   </div>
                 </div>
               </div>
-              <span className="badge-waiting animate-shimmer shrink-0" style={{ fontSize: '10px' }}>
-                जल्द आ रहा है
-              </span>
+              <span className="badge-waiting animate-shimmer" style={{ flexShrink: 0, fontSize: 9 }}>जल्द</span>
             </div>
-            <div className="h-1 w-full" style={{ background: '#FFF9C4' }}>
-              <div className="h-full animate-shimmer" style={{ width: '40%', background: game.color, opacity: 0.6 }} />
+            <div style={{ height: 3, background: '#FFF9C4' }}>
+              <div className="animate-shimmer" style={{ width: '35%', height: '100%', background: game.color, opacity: 0.5 }} />
             </div>
           </div>
         ))}
