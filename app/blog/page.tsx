@@ -10,7 +10,7 @@ const blogPosts = [
     title: "Understanding A786 Charts: A Comprehensive Guide",
     excerpt: "Learn how to effectively read and analyze old and new record charts displayed in a clear and organized way to track historical patterns.",
     date: "April 18, 2026",
-    author: "Admin",
+    author: "a786satta",
     category: "Guides",
   },
   {
@@ -18,7 +18,7 @@ const blogPosts = [
     title: "The Evolution of Number-Based Lottery Games in India",
     excerpt: "From pre-independence traditional setups to modern digital platforms, explore how games like Disawar, Faridabad, and Gali have evolved.",
     date: "April 15, 2026",
-    author: "Admin",
+    author: "a786satta",
     category: "History",
   },
   {
@@ -26,7 +26,7 @@ const blogPosts = [
     title: "Why Transparency Matters in Live Results",
     excerpt: "A deep dive into how real-time, transparent result updates keep the ecosystem trustworthy for players across Delhi, UP, and Rajasthan.",
     date: "April 10, 2026",
-    author: "Admin",
+    author: "a786satta",
     category: "Platform Updates",
   },
     {
@@ -34,7 +34,7 @@ const blogPosts = [
     title: "The Evolution of Number-Based Lottery Games in India",
     excerpt: "From pre-independence traditional setups to modern digital platforms, explore how games like Disawar, Faridabad, and Gali have evolved.",
     date: "April 15, 2026",
-    author: "Admin",
+    author: "a786satta",
     category: "History",
   },
     {
@@ -42,7 +42,7 @@ const blogPosts = [
     title: "The Evolution of Number-Based Lottery Games in India",
     excerpt: "From pre-independence traditional setups to modern digital platforms, explore how games like Disawar, Faridabad, and Gali have evolved.",
     date: "April 15, 2026",
-    author: "Admin",
+    author: "a786satta",
     category: "History",
   },
     {
@@ -50,7 +50,7 @@ const blogPosts = [
     title: "The Evolution of Number-Based Lottery Games in India",
     excerpt: "From pre-independence traditional setups to modern digital platforms, explore how games like Disawar, Faridabad, and Gali have evolved.",
     date: "April 15, 2026",
-    author: "Admin",
+    author: "a786satta",
     category: "History",
   }
 ];
