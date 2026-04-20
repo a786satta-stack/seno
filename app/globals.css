@@ -1,24 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
-@import "tailwindcss";
-
-@theme {
-  --font-family-display: var(--font-display);
-  --font-family-body: var(--font-body);
-  --font-family-mono: var(--font-mono);
-
-  --color-bg: var(--bg);
-  --color-surface: var(--surface);
-  --color-surface-2: var(--surface-2);
-  --color-border: var(--border);
-  --color-primary: var(--primary);
-  --color-primary-dim: var(--primary-dim);
-  --color-accent: var(--accent);
-  --color-text: var(--text);
-  --color-muted: var(--muted);
-  --color-danger: var(--danger);
-  --color-success: var(--success);
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --bg:          #FFFFFF;
@@ -251,51 +235,16 @@ body {
 .sk-input:focus { border-color: var(--primary-dk); box-shadow: 0 0 0 3px rgba(255,224,0,.25); }
 
 /* ── RESPONSIVE LAYOUT ── */
+/* mobile-max constrains width on mobile only, desktop gets full width */
 @media (min-width: 768px) {
   .mobile-max { max-width: 100% !important; }
   .main-content { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+  /* Desktop: 2 columns for result cards */
   .results-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 16px !important; }
+  /* Desktop: wider card layout */
   .sk-card { border-radius: 16px !important; }
+  /* Desktop: khaiwal section side by side */
   .khaiwals-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  /* Desktop: social channels side by side */
   .social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-}
-
-/* ── PAGE LAYOUT GRID ── */
-.page-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-@media (min-width: 768px) {
-  .page-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-    gap: 28px;
-    align-items: start;
-  }
-  .page-sidebar {
-    position: sticky;
-    top: 76px;
-  }
-}
-
-/* ── SECTION SPACING ── */
-.section-gap {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-/* ── RESULT CARD GRID ── */
-.result-cards-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-}
-
-@media (min-width: 480px) {
-  .result-cards-grid {
-    grid-template-columns: 1fr 1fr;
-  }
 }
