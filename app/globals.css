@@ -18,36 +18,7 @@
   --color-muted: var(--muted);
   --color-danger: var(--danger);
   --color-success: var(--success);
-
-  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  --animate-slide-up: slideUp 0.4s ease-out;
-  --animate-fade-in: fadeIn 0.3s ease-out;
-  --animate-number-flip: numberFlip 0.5s ease-out;
-  --animate-glow: glow 2s ease-in-out infinite alternate;
-  --animate-ticker: ticker 20s linear infinite;
-
-  @keyframes slideUp {
-    0% { transform: translateY(20px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-  }
-  @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-  @keyframes numberFlip {
-    0% { transform: rotateX(-90deg); opacity: 0; }
-    100% { transform: rotateX(0deg); opacity: 1; }
-  }
-  @keyframes glow {
-    0% { box-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary); }
-    100% { box-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary-dim); }
-  }
-  @keyframes ticker {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
 }
-
 
 :root {
   --bg:          #FFFFFF;
@@ -280,16 +251,11 @@ body {
 .sk-input:focus { border-color: var(--primary-dk); box-shadow: 0 0 0 3px rgba(255,224,0,.25); }
 
 /* ── RESPONSIVE LAYOUT ── */
-/* mobile-max constrains width on mobile only, desktop gets full width */
 @media (min-width: 768px) {
   .mobile-max { max-width: 100% !important; }
   .main-content { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
-  /* Desktop: 2 columns for result cards */
   .results-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 16px !important; }
-  /* Desktop: wider card layout */
   .sk-card { border-radius: 16px !important; }
-  /* Desktop: khaiwal section side by side */
   .khaiwals-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  /* Desktop: social channels side by side */
   .social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 }
