@@ -3,7 +3,7 @@ import './globals.css'
 import { Toaster } from 'react-hot-toast'
 import SessionProvider from '@/components/SessionProvider'
 import WhatsAppButton from '@/components/WhatsAppButton'
-import Script from 'next/script' // Import Next.js Script component
+import Script from 'next/script' 
 
 export const metadata: Metadata = {
   title: 'A786 — Live Satta Results Today',
@@ -15,6 +15,9 @@ export const metadata: Metadata = {
       { url: '/favicon.svg', type: 'image/svg+xml' },
     ],
     apple: '/favicon.svg',
+  },
+  verification: {
+    google: 'FQnDbziZqpv5K3pyLiPOpDQc9m9g2aKl6anLQmQx8xk',
   },
 }
 
@@ -44,7 +47,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           message="Hello! I have a query about A786 results."
         />
 
-        {/* Properly closed Toaster component */}
         <Toaster
           position="top-center"
           toastOptions={{
@@ -58,7 +60,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
 
-        {/* Google Analytics configured the Next.js way */}
         <Script
           strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=G-2S9DL0HKFJ`}
