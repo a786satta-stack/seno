@@ -23,7 +23,8 @@ export default async function ChartPage({ searchParams }: { searchParams: { mont
 
   const chartMap = Object.fromEntries((charts as any[]).map(c => [c.gameSlug, c]))
 
-  const monthOptions = Array.from({ length: 6 }, (_, i) => {
+  const monthsDiff = (now.getFullYear() - 2024) * 12 + now.getMonth() + 1
+  const monthOptions = Array.from({ length: Math.max(1, monthsDiff) }, (_, i) => {
     const d = new Date(now.getFullYear(), now.getMonth() - i, 1)
     return { year: d.getFullYear(), month: d.getMonth() + 1, label: format(d, 'MMM yyyy') }
   })
