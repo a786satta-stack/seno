@@ -8,7 +8,7 @@ import Script from 'next/script'
 export const metadata: Metadata = {
   title: 'A786 — Live Satta Results Today',
   description: 'Live A786 satta results for Disawar, Faridabad, Ghaziabad, Delhi Bazar and more. Fast and accurate.',
-  keywords: 'a786, satta king, satta result, disawar result, faridabad result, a786 satta',
+  keywords: '',
   robots: 'index, follow',
   icons: {
     icon: [
