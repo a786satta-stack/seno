@@ -7,7 +7,7 @@ import Footer from '@/components/frontend/Footer';
 const blogPosts = [
   {
     id: 1,
-    title: "Understanding A786 Charts: A Comprehensive Guide",
+    title: "Understanding  Charts: A Comprehensive Guide",
     excerpt: "Learn how 2 effectively read and analyze old and new record charts displayed in a clear and organized way to track historical patterns.",
     date: "April 19, 2026",
     author: "Admin",
