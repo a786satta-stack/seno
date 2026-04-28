@@ -71,7 +71,7 @@ const page = () => {
             In today's fast-paced environment, understanding the underlying patterns of data isn't just an advantage—it's a necessity for survival.
           </p>
 
-          <h2 className="text-2xl mt-8 mb-4">THE IMPORTANCE OF STATISTICAL CLARITY</h2>
+          <h2 className="text-2xl mt-8 mb-4">THE IMPORTANCE OF  STATISTICAL CLARITY</h2>
           <p>
             When we look at the cards presented on the main dashboard, each represents a unique data point. To truly master the outcomes, one must look beyond the surface numbers and analyze the historical variance. This involves technical rigor and a disciplined management mindset.
           </p>
