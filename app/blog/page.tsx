@@ -7,6 +7,7 @@ import Footer from '@/components/frontend/Footer';
 const blogPosts = [
   {
     id: 1,
+    slug: "blog1",
     title: "Understanding  Charts: A Comprehensive Guide",
     excerpt: "Learn how 2 effectively read and analyze old and new record charts displayed in a clear and organized way to track historical patterns.",
     date: "April 19, 2026",
@@ -15,6 +16,7 @@ const blogPosts = [
   },
   {
     id: 2,
+    slug: "blog2",
     title: "The Evolution of Number-Based Lottery Games in India",
     excerpt: "From pre-independence traditional setups to modern digital platforms, explore how games like Disawar, Faridabad, and Gali have evolved.",
     date: "April 15, 2026",
@@ -23,6 +25,7 @@ const blogPosts = [
   },
   {
     id: 3,
+    slug: "blog3",
     title: "Why Transparency Matters in Live Results",
     excerpt: "A deep dive into how real-time, transparent result updates keep the ecosystem trustworthy for players across Delhi, UP, and Rajasthan.",
     date: "April 10, 2026",
@@ -31,6 +34,7 @@ const blogPosts = [
   },
     {
     id: 4,
+    slug: "blog4",
     title: "The Evolution of Number-Based Lottery Games in India",
     excerpt: "From pre-independence traditional setups to modern digital platforms, explore how games like Disawar, Faridabad, and Gali have evolved.",
     date: "April 15, 2026",
@@ -39,6 +43,7 @@ const blogPosts = [
   },
     {
     id: 5,
+    slug: "blog 5",
     title: "The Evolution of Number-Based Lottery Games in India",
     excerpt: "From pre-independence traditional setups to modern digital platforms, explore how games like Disawar, Faridabad, and Gali have evolved.",
     date: "April 15, 2026",
@@ -47,6 +52,7 @@ const blogPosts = [
   },
     {
     id: 6,
+    slug: "blog 6",
     title: "The Evolution of Number-Based Lottery Games in India",
     excerpt: "From pre-independence traditional setups to modern digital platforms, explore how games like Disawar, Faridabad, and Gali have evolved.",
     date: "April 15, 2026",
@@ -76,10 +82,10 @@ export default function BlogPage() {
       <main className="max-w-5xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post) => (
-            <article 
-              key={post.id} 
-              className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-yellow-400 hover:shadow-md transition-all duration-300 flex flex-col shadow-sm"
-            >
+            <Link href={`/blog/${post.slug}`} key={post.id} className="block group">
+              <article 
+                className="bg-white border border-gray-200 rounded-xl overflow-hidden group-hover:border-yellow-400 group-hover:shadow-md transition-all duration-300 flex flex-col shadow-sm h-full"
+              >
               <div className="p-6 flex-grow flex flex-col">
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-xs font-bold uppercase tracking-wider text-red-600 bg-red-50 px-2 py-1 rounded border border-red-100">
@@ -87,7 +93,7 @@ export default function BlogPage() {
                   </span>
                   <span className="text-xs text-gray-500 font-mono font-medium">{post.date}</span>
                 </div>
-                <h2 className="text-xl font-bold text-gray-900 mb-3 leading-tight hover:text-yellow-600 cursor-pointer transition-colors">
+                <h2 className="text-xl font-bold text-gray-900 mb-3 leading-tight group-hover:text-yellow-600 transition-colors">
                   {post.title}
                 </h2>
                 <p className="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">
@@ -99,7 +105,8 @@ export default function BlogPage() {
                   </span>
                 </div>
               </div>
-            </article>
+              </article>
+            </Link>
           ))}
         </div>
       </main>
