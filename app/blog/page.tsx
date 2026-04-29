@@ -8,7 +8,11 @@ const blogPosts = [
   {
     id: 1,
     slug: "blog1",
+<<<<<<< HEAD
     title: "Learn  Charts: A Comprehensive Guide",
+=======
+    title: "Understand  Charts: A Comprehensive Guide",
+>>>>>>> 21c7e47fc358367b0eaca3f2a8653cf08d9fc843
     excerpt: "Learn how 2 effectively read and analyze old and new record charts displayed in a clear and organized way to track historical patterns.",
     date: "April 19, 2026",
     author: "Admin",
