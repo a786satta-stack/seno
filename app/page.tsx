@@ -1,4 +1,4 @@
-export const revalidate = 30 // ✅ replaces force-dynamic (BIG performance boost)
+export const revalidate = 30
 
 import { dbConnect } from '@/lib/db'
 import { Game } from '@/models/Game'
@@ -13,14 +13,10 @@ import Footer from '@/components/frontend/Footer'
 
 import dynamic from 'next/dynamic'
 
-// ✅ Lazy-loaded (non-critical)
 const SeoContent = dynamic(() => import('@/components/frontend/SeoContent'))
 const FaqSection = dynamic(() => import('@/components/frontend/FaqSection'))
 const KhaiwaalSection = dynamic(() => import('@/components/frontend/KhaiwaalSection'))
 
-/**
- * ✅ IST-safe start of day
- */
 function getISTStartOfDay(offsetDays = 0) {
   const now = new Date()
 
@@ -40,7 +36,6 @@ async function getData() {
   const today = getISTStartOfDay(0)
   const yesterday = getISTStartOfDay(-1)
 
-  // ✅ Optimized queries (select only needed fields)
   const [games, todayR, yesterdayR, lastR] = await Promise.all([
     Game.find({ isActive: true })
       .select('name slug openTime closeTime color order')
@@ -114,9 +109,6 @@ export default async function HomePage() {
     </div>
   )
 
-  /**
-   * ✅ IMPORTANT: Results grid moved UP (improves LCP)
-   */
   const resultsGrid =
     games.length === 0 ? (
       <div className="text-center py-20 font-mono" style={{ color: '#c9a800' }}>
@@ -184,10 +176,8 @@ export default async function HomePage() {
             <div className="gold-divider mt-3" />
           </div>
 
-          {/* ✅ LCP FIRST */}
           {resultsGrid}
 
-          {/* MOBILE */}
           <div className="md:hidden">
             {bannerSection}
             <NextThreeGames />
@@ -202,7 +192,6 @@ export default async function HomePage() {
             <FaqSection />
           </div>
 
-          {/* DESKTOP */}
           <div className="hidden md:grid md:grid-cols-3 md:gap-6 md:items-start">
             <div className="md:col-span-2 space-y-4">
               {bannerSection}
