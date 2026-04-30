@@ -13,89 +13,182 @@ import KhaiwaalSection from '@/components/frontend/KhaiwaalSection'
 import SeoContent from '@/components/frontend/SeoContent'
 import FaqSection from '@/components/frontend/FaqSection'
 import Footer from '@/components/frontend/Footer'
-import { subDays, startOfDay } from 'date-fns'
+
+/**
+ * ✅ IST-safe start of day generator
+ */
+function getISTStartOfDay(offsetDays = 0) {
+  const now = new Date()
+
+  const ist = new Date(
+    now.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' })
+  )
+
+  ist.setDate(ist.getDate() + offsetDays)
+  ist.setHours(0, 0, 0, 0)
+
+  return ist
+}
 
 async function getData() {
   await dbConnect()
-  const games = await Game.find({ isActive: true }).sort({ order: 1 }).lean()
-  const today = startOfDay(new Date())
-  const yesterday = startOfDay(subDays(new Date(), 1))
+
+  const games = await Game.find({ isActive: true })
+    .sort({ order: 1 })
+    .lean()
+
+  // ✅ FIXED: IST-based dates
+  const today = getISTStartOfDay(0)
+  const yesterday = getISTStartOfDay(-1)
+
   const [todayR, yesterdayR, lastR] = await Promise.all([
-    Result.find({ resultDate: { $gte: today }, isPublished: true }).lean(),
-    Result.find({ resultDate: { $gte: yesterday, $lt: today }, isPublished: true }).lean(),
-    Result.findOne({ isPublished: true }).sort({ publishedAt: -1 }).lean(),
+    Result.find({
+      resultDate: { $gte: today },
+      isPublished: true,
+    }).lean(),
+
+    Result.find({
+      resultDate: { $gte: yesterday, $lt: today },
+      isPublished: true,
+    }).lean(),
+
+    Result.findOne({ isPublished: true })
+      .sort({ publishedAt: -1 })
+      .lean(),
   ])
-  const todayMap = Object.fromEntries(todayR.map((r: any) => [r.gameSlug, r.resultNumber]))
-  const yesterdayMap = Object.fromEntries(yesterdayR.map((r: any) => [r.gameSlug, r.resultNumber]))
-  const lastGame = lastR ? (games as any[]).find((g: any) => g.slug === (lastR as any).gameSlug) : null
+
+  const todayMap = Object.fromEntries(
+    todayR.map((r: any) => [r.gameSlug, r.resultNumber])
+  )
+
+  const yesterdayMap = Object.fromEntries(
+    yesterdayR.map((r: any) => [r.gameSlug, r.resultNumber])
+  )
+
+  const lastGame = lastR
+    ? (games as any[]).find(
+        (g: any) => g.slug === (lastR as any).gameSlug
+      )
+    : null
+
   const tickerItems = (games as any[]).map((g: any) => ({
     gameName: g.name,
     resultNumber: todayMap[g.slug] ?? '--',
   }))
+
   return { games, todayMap, yesterdayMap, lastR, lastGame, tickerItems }
 }
 
 export default async function HomePage() {
-  const { games, todayMap, yesterdayMap, lastR, lastGame, tickerItems } = await getData()
-  const todayStr = new Date().toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })
+  const { games, todayMap, yesterdayMap, lastR, lastGame, tickerItems } =
+    await getData()
+
+  // ✅ FIXED: IST-based display date
+  const todayStr = new Date().toLocaleDateString('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
 
   const disclaimer = (
-    <div className="rounded-xl px-4 py-3 mb-4 font-mono text-xs leading-relaxed border-2"
-      style={{ background: '#FFF5F5', borderColor: '#fca5a5', color: '#991b1b' }}>
+    <div
+      className="rounded-xl px-4 py-3 mb-4 font-mono text-xs leading-relaxed border-2"
+      style={{
+        background: '#FFF5F5',
+        borderColor: '#fca5a5',
+        color: '#991b1b',
+      }}
+    >
       ⚠️ For entertainment &amp; informational purposes only. Gambling may be illegal in your jurisdiction.
     </div>
   )
 
-  const resultsGrid = games.length === 0 ? (
-    <div className="text-center py-20 font-mono" style={{ color: '#c9a800' }}>No games configured yet.</div>
-  ) : (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-      {(games as any[]).map((g: any, i: number) => (
-        <div key={g._id} className={`d${Math.min(i + 1, 12)}`}>
-          <ResultCard
-            game={{ _id: g._id.toString(), name: g.name, slug: g.slug, openTime: g.openTime, closeTime: g.closeTime, color: g.color }}
-            todayResult={todayMap[g.slug] ?? null}
-            yesterdayResult={yesterdayMap[g.slug] ?? null}
-          />
-        </div>
-      ))}
-    </div>
-  )
+  const resultsGrid =
+    games.length === 0 ? (
+      <div
+        className="text-center py-20 font-mono"
+        style={{ color: '#c9a800' }}
+      >
+        No games configured yet.
+      </div>
+    ) : (
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+        {(games as any[]).map((g: any, i: number) => (
+          <div key={g._id} className={`d${Math.min(i + 1, 12)}`}>
+            <ResultCard
+              game={{
+                _id: g._id.toString(),
+                name: g.name,
+                slug: g.slug,
+                openTime: g.openTime,
+                closeTime: g.closeTime,
+                color: g.color,
+              }}
+              todayResult={todayMap[g.slug] ?? null}
+              yesterdayResult={yesterdayMap[g.slug] ?? null}
+            />
+          </div>
+        ))}
+      </div>
+    )
 
   const numberUpdate = (
     <NumberUpdateSection
-      games={(games as any[]).map((g: any) => ({ name: g.name, slug: g.slug, openTime: g.openTime, color: g.color }))}
+      games={(games as any[]).map((g: any) => ({
+        name: g.name,
+        slug: g.slug,
+        openTime: g.openTime,
+        color: g.color,
+      }))}
       todayMap={todayMap}
       yesterdayMap={yesterdayMap}
     />
   )
 
-  const bannerSection = lastR && lastGame ? (
-    <LastUpdatedBanner
-      gameName={(lastR as any).gameName ?? (lastGame as any).name ?? ''}
-      resultNumber={(lastR as any).resultNumber ?? ''}
-      gameOpenTime={(lastGame as any).openTime ?? ''}
-    />
-  ) : null
+  const bannerSection =
+    lastR && lastGame ? (
+      <LastUpdatedBanner
+        gameName={(lastR as any).gameName ?? (lastGame as any).name ?? ''}
+        resultNumber={(lastR as any).resultNumber ?? ''}
+        gameOpenTime={(lastGame as any).openTime ?? ''}
+      />
+    ) : null
 
   return (
     <div className="min-h-dvh grid-bg" style={{ background: '#FFFFFF' }}>
       <Header tickerItems={tickerItems} />
 
       <main className="pb-safe" style={{ width: '100%' }}>
-        <div className="px-3 md:px-8 pb-6 w-full" style={{ maxWidth: 1200, margin: '0 auto' }}>
-
+        <div
+          className="px-3 md:px-8 pb-6 w-full"
+          style={{ maxWidth: 1200, margin: '0 auto' }}
+        >
           <div className="py-4 text-center">
-            <div className="font-mono text-[10px] uppercase tracking-widest mb-1" style={{ color: '#7a6a10' }}>Today's Results</div>
-            <h1 className="font-display text-3xl tracking-wide leading-none" style={{ color: '#111100' }}>{todayStr.toUpperCase()}</h1>
+            <div
+              className="font-mono text-[10px] uppercase tracking-widest mb-1"
+              style={{ color: '#7a6a10' }}
+            >
+              Today's Results
+            </div>
+            <h1
+              className="font-display text-3xl tracking-wide leading-none"
+              style={{ color: '#111100' }}
+            >
+              {todayStr.toUpperCase()}
+            </h1>
             <div className="gold-divider mt-3" />
           </div>
 
-          {/* ── MOBILE ── */}
+          {/* MOBILE */}
           <div className="md:hidden">
             {bannerSection}
             <NextThreeGames />
-            <SocialChannels whatsappLink="https://whatsapp.com/channel/0029VbCHriDFCCoWbzrHyk0b" telegramLink="https://t.me/a786result" />
+            <SocialChannels
+              whatsappLink="https://whatsapp.com/channel/0029VbCHriDFCCoWbzrHyk0b"
+              telegramLink="https://t.me/a786result"
+            />
             <KhaiwaalSection />
             {numberUpdate}
             {disclaimer}
@@ -104,7 +197,7 @@ export default async function HomePage() {
             <FaqSection />
           </div>
 
-          {/* ── DESKTOP ── */}
+          {/* DESKTOP */}
           <div className="hidden md:grid md:grid-cols-3 md:gap-6 md:items-start">
             <div className="md:col-span-2 space-y-4">
               {bannerSection}
@@ -116,11 +209,13 @@ export default async function HomePage() {
               <FaqSection />
             </div>
             <div className="md:col-span-1 space-y-4">
-              <SocialChannels whatsappLink="https://whatsapp.com/channel/0029VbCHriDFCCoWbzrHyk0b" telegramLink="https://t.me/a786result" />
+              <SocialChannels
+                whatsappLink="https://whatsapp.com/channel/0029VbCHriDFCCoWbzrHyk0b"
+                telegramLink="https://t.me/a786result"
+              />
               <KhaiwaalSection />
             </div>
           </div>
-
         </div>
       </main>
 
