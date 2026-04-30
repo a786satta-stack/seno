@@ -14,9 +14,6 @@ import SeoContent from '@/components/frontend/SeoContent'
 import FaqSection from '@/components/frontend/FaqSection'
 import Footer from '@/components/frontend/Footer'
 
-/**
- * ✅ IST-safe start of day generator
- */
 function getISTStartOfDay(offsetDays = 0) {
   const now = new Date()
 
@@ -37,7 +34,6 @@ async function getData() {
     .sort({ order: 1 })
     .lean()
 
-  // ✅ FIXED: IST-based dates
   const today = getISTStartOfDay(0)
   const yesterday = getISTStartOfDay(-1)
 
@@ -83,7 +79,6 @@ export default async function HomePage() {
   const { games, todayMap, yesterdayMap, lastR, lastGame, tickerItems } =
     await getData()
 
-  // ✅ FIXED: IST-based display date
   const todayStr = new Date().toLocaleDateString('en-IN', {
     timeZone: 'Asia/Kolkata',
     weekday: 'long',
