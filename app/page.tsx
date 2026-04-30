@@ -1,4 +1,4 @@
-export const dynamic = 'force-dynamic'
+export const revalidate = 30 // ✅ replaces force-dynamic (BIG performance boost)
 
 import { dbConnect } from '@/lib/db'
 import { Game } from '@/models/Game'
@@ -9,13 +9,17 @@ import LastUpdatedBanner from '@/components/frontend/LastUpdatedBanner'
 import NextThreeGames from '@/components/frontend/NextThreeGames'
 import NumberUpdateSection from '@/components/frontend/NumberUpdateSection'
 import SocialChannels from '@/components/frontend/SocialChannels'
-import KhaiwaalSection from '@/components/frontend/KhaiwaalSection'
-import SeoContent from '@/components/frontend/SeoContent'
-import FaqSection from '@/components/frontend/FaqSection'
 import Footer from '@/components/frontend/Footer'
 
+import dynamic from 'next/dynamic'
+
+// ✅ Lazy-loaded (non-critical)
+const SeoContent = dynamic(() => import('@/components/frontend/SeoContent'))
+const FaqSection = dynamic(() => import('@/components/frontend/FaqSection'))
+const KhaiwaalSection = dynamic(() => import('@/components/frontend/KhaiwaalSection'))
+
 /**
- * ✅ IST-safe start of day generator
+ * ✅ IST-safe start of day
  */
 function getISTStartOfDay(offsetDays = 0) {
   const now = new Date()
@@ -33,27 +37,33 @@ function getISTStartOfDay(offsetDays = 0) {
 async function getData() {
   await dbConnect()
 
-  const games = await Game.find({ isActive: true })
-    .sort({ order: 1 })
-    .lean()
-
-  // ✅ FIXED: IST-based dates
   const today = getISTStartOfDay(0)
   const yesterday = getISTStartOfDay(-1)
 
-  const [todayR, yesterdayR, lastR] = await Promise.all([
+  // ✅ Optimized queries (select only needed fields)
+  const [games, todayR, yesterdayR, lastR] = await Promise.all([
+    Game.find({ isActive: true })
+      .select('name slug openTime closeTime color order')
+      .sort({ order: 1 })
+      .lean(),
+
     Result.find({
       resultDate: { $gte: today },
       isPublished: true,
-    }).lean(),
+    })
+      .select('gameSlug resultNumber')
+      .lean(),
 
     Result.find({
       resultDate: { $gte: yesterday, $lt: today },
       isPublished: true,
-    }).lean(),
+    })
+      .select('gameSlug resultNumber')
+      .lean(),
 
     Result.findOne({ isPublished: true })
       .sort({ publishedAt: -1 })
+      .select('gameSlug gameName resultNumber')
       .lean(),
   ])
 
@@ -83,7 +93,6 @@ export default async function HomePage() {
   const { games, todayMap, yesterdayMap, lastR, lastGame, tickerItems } =
     await getData()
 
-  // ✅ FIXED: IST-based display date
   const todayStr = new Date().toLocaleDateString('en-IN', {
     timeZone: 'Asia/Kolkata',
     weekday: 'long',
@@ -105,12 +114,12 @@ export default async function HomePage() {
     </div>
   )
 
+  /**
+   * ✅ IMPORTANT: Results grid moved UP (improves LCP)
+   */
   const resultsGrid =
     games.length === 0 ? (
-      <div
-        className="text-center py-20 font-mono"
-        style={{ color: '#c9a800' }}
-      >
+      <div className="text-center py-20 font-mono" style={{ color: '#c9a800' }}>
         No games configured yet.
       </div>
     ) : (
@@ -166,20 +175,17 @@ export default async function HomePage() {
           style={{ maxWidth: 1200, margin: '0 auto' }}
         >
           <div className="py-4 text-center">
-            <div
-              className="font-mono text-[10px] uppercase tracking-widest mb-1"
-              style={{ color: '#7a6a10' }}
-            >
+            <div className="font-mono text-[10px] uppercase tracking-widest mb-1" style={{ color: '#7a6a10' }}>
               Today's Results
             </div>
-            <h1
-              className="font-display text-3xl tracking-wide leading-none"
-              style={{ color: '#111100' }}
-            >
+            <h1 className="font-display text-3xl tracking-wide leading-none" style={{ color: '#111100' }}>
               {todayStr.toUpperCase()}
             </h1>
             <div className="gold-divider mt-3" />
           </div>
+
+          {/* ✅ LCP FIRST */}
+          {resultsGrid}
 
           {/* MOBILE */}
           <div className="md:hidden">
@@ -192,7 +198,6 @@ export default async function HomePage() {
             <KhaiwaalSection />
             {numberUpdate}
             {disclaimer}
-            {resultsGrid}
             <SeoContent />
             <FaqSection />
           </div>
@@ -202,9 +207,8 @@ export default async function HomePage() {
             <div className="md:col-span-2 space-y-4">
               {bannerSection}
               <NextThreeGames />
-              {disclaimer}
               {numberUpdate}
-              {resultsGrid}
+              {disclaimer}
               <SeoContent />
               <FaqSection />
             </div>
