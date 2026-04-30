@@ -3,19 +3,61 @@ import './globals.css'
 import { Toaster } from 'react-hot-toast'
 import SessionProvider from '@/components/SessionProvider'
 import WhatsAppButton from '@/components/WhatsAppButton'
-import Script from 'next/script' 
+import Script from 'next/script'
 
 export const metadata: Metadata = {
-  title: 'A786 — Live Satta Results Today',
-  description: 'Live A786 satta results for Disawar, Faridabad, Ghaziabad, Delhi Bazar and more. Fast and accurate.',
-  keywords: '',
+  metadataBase: new URL('https://www.a786satta.com'),
+
+  title: 'A786 Satta Results & Charts',
+  description:
+    'Check latest results, charts and live updates on A786 Satta.',
+
+  keywords: [
+    'A786 satta',
+    'satta results',
+    'satta charts',
+    'Disawar result',
+    'Faridabad result',
+    'Ghaziabad result',
+  ],
+
   robots: 'index, follow',
-  icons: {
-    icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-    ],
-    apple: '/favicon.svg',
+
+  alternates: {
+    canonical: 'https://www.a786satta.com/',
   },
+
+  openGraph: {
+    type: 'website',
+    url: 'https://www.a786satta.com/',
+    title: 'A786 Satta Results & Charts',
+    description:
+      'Latest results, charts and fast updates available online.',
+    siteName: 'A786 Satta',
+    locale: 'en_IN',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'A786 Satta Results Preview',
+      },
+    ],
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'A786 Satta Results & Charts',
+    description:
+      'Check latest results and charts with fast updates.',
+    images: ['/og-image.jpg'],
+  },
+
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
+
   verification: {
     google: 'FQnDbziZqpv5K3pyLiPOpDQc9m9g2aKl6anLQmQx8xk',
   },
@@ -24,23 +66,34 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  maximumScale: 5,
+  userScalable: true,
   themeColor: '#FFE000',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
       <head>
+        {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap"
+          rel="stylesheet"
+        />
       </head>
+
       <body>
-        <SessionProvider>
-          {children}
-        </SessionProvider>
+        <SessionProvider>{children}</SessionProvider>
 
         <WhatsAppButton
           phone="919485519859"
@@ -60,9 +113,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
 
+        {/* Google Analytics */}
         <Script
           strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=G-2S9DL0HKFJ`}
+          src="https://www.googletagmanager.com/gtag/js?id=G-2S9DL0HKFJ"
         />
         <Script
           id="google-analytics"
@@ -74,6 +128,93 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               gtag('js', new Date());
               gtag('config', 'G-2S9DL0HKFJ');
             `,
+          }}
+        />
+
+        {/* Breadcrumb Schema */}
+        <Script
+          id="breadcrumb-schema"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org/",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://www.a786satta.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Blog",
+                  item: "https://www.a786satta.com/blog"
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: "Kuber City",
+                  item: "https://www.a786satta.com/chart/kuber-city"
+                },
+                {
+                  "@type": "ListItem",
+                  position: 4,
+                  name: "Noida City",
+                  item: "https://www.a786satta.com/chart/noida-city"
+                },
+                {
+                  "@type": "ListItem",
+                  position: 5,
+                  name: "Sadar Bazar",
+                  item: "https://www.a786satta.com/chart/sadar-bazar"
+                },
+                {
+                  "@type": "ListItem",
+                  position: 6,
+                  name: "Gwalior",
+                  item: "https://www.a786satta.com/chart/gwalior"
+                },
+                {
+                  "@type": "ListItem",
+                  position: 7,
+                  name: "Delhi Bazar",
+                  item: "https://www.a786satta.com/chart/delhi-bazar"
+                },
+                {
+                  "@type": "ListItem",
+                  position: 8,
+                  name: "Shri Ganesh",
+                  item: "https://www.a786satta.com/chart/shri-ganesh"
+                },
+                {
+                  "@type": "ListItem",
+                  position: 9,
+                  name: "Faridabad",
+                  item: "https://www.a786satta.com/chart/faridabad"
+                },
+                {
+                  "@type": "ListItem",
+                  position: 10,
+                  name: "Alwar",
+                  item: "https://www.a786satta.com/chart/alwar"
+                },
+                {
+                  "@type": "ListItem",
+                  position: 11,
+                  name: "Gali",
+                  item: "https://www.a786satta.com/chart/gali"
+                },
+                {
+                  "@type": "ListItem",
+                  position: 12,
+                  name: "Disawar",
+                  item: "https://www.a786satta.com/chart/disawar"
+                }
+              ]
+            }),
           }}
         />
       </body>
