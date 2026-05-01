@@ -3,18 +3,19 @@ import { useState } from 'react'
 import { Plus, Minus } from 'lucide-react'
 
 const FAQS = [
-  { q: 'What is Satta King?', a: 'Satta King is a number-based result game originating in India. A number between 00–99 is drawn and declared as the winning number. Our website provides updated results and historical charts for all major satta games.' },
-  { q: 'Can I play Satta on this website?', a: 'No. This website is strictly for informational purposes only. We only display results and historical charts. We do not facilitate, promote or allow any form of gambling or betting.' },
-  { q: 'How often are results updated?', a: 'Results are updated as soon as they are officially declared. Each game has a fixed time window shown on the home page.' },
-  { q: 'Can I see previous years record charts?', a: 'Yes. Our Monthly Chart section provides month-by-month results for every game. Browse back through previous months to view complete historical records.' },
-  { q: 'Do I need to register to check results?', a: 'No registration is required. All results, charts and historical data are freely accessible to everyone without any sign-up or login.' },
-  { q: 'Can I predict the winning number?', a: 'No. Satta King results are completely random and cannot be predicted. We only provide historical data and strongly advise against relying on any predictions.' },
-  { q: 'Does this website offer a leak number?', a: 'No. We do not provide any leak numbers, tips or predictions. Anyone claiming to offer guaranteed satta numbers is fraudulent. Beware of scams.' },
-  { q: 'Is using this site legal in India?', a: 'Gambling laws vary by state in India. This website only displays result information and does not involve any monetary transactions. Check your local laws before accessing gambling-related content.' },
-  { q: 'What is the timing of Disawar?', a: 'Disawar is the earliest game, declared around 5:00 AM to 6:00 AM. It is one of the most popular and oldest satta games in India.' },
-  { q: 'What is the timing of Faridabad?', a: 'Faridabad Satta result is usually declared around 6:00 PM to 7:00 PM every day.' },
-  { q: 'What is the timing of Gali Satta?', a: 'Gali Satta result is usually declared around 11:30 PM to 12:00 AM every night.' },
-  { q: 'What is the timing of Delhi Bazar Satta?', a: 'Delhi Bazar Satta result is usually declared around 5:00 PM to 6:00 PM.' },
+  { q: 'A786 Satta पर results कब update होते हैं?', a: 'A786 Satta पर results जैसे ही market declare होता है, तुरंत update कर दिए जाते हैं। Users यहाँ आकर आसानी से latest Faridabad Satta Live Result, Ghaziabad Satta Live Result, Gali Satta Live Result, और Disawar Satta Live Result check कर सकते हैं।' },
+  { q: 'क्या यहाँ पुराने results भी मिल जाते हैं?', a: 'हाँ, अगर आप पिछले data को देखना चाहते हैं तो charts available हैं। जैसे Faridabad Satta Chart, Ghaziabad Satta Chart, Gali Satta Chart और Disawar Satta Chart में पुराने results आसानी से मिल जाते हैं।' },
+  { q: 'क्या A786 Satta mobile पर use करना आसान है?', a: 'हाँ, website mobile-friendly है। आप कहीं से भी quickly Faridabad Satta Result, Ghaziabad Satta Result, Gali Satta Result, और Disawar Satta Result check कर सकते हैं।' },
+  { q: 'सबसे ज़्यादा लोग कौन से results देखने आते हैं?', a: 'अक्सर users daily Delhi Bazar Result, Faridabad Satta Result, Ghaziabad Satta Result, Gali Satta Result, और Disawar Satta Result  के updates देखने के लिए website visit करते हैं।' },
+  { q: 'क्या नए users के लिए समझना आसान है?', a: 'हाँ, results simple format में दिखाए जाते हैं। चाहे आप Faridabad Satta Result, Ghaziabad Satta Result, Gali Satta Result, और Disawar Satta Result, सब clear रहता है।' },
+  { q: 'क्या एक ही जगह पर सभी markets देख सकते हैं?', a: 'हाँ, A786 Satta पर आप एक साथ कई markets जैसे gali disawar ghaziabad के updates देख सकते हैं।' },
+  { q: 'Charts का use क्यों किया जाता है?', a: 'Charts आपको पुराने results समझने में मदद करते हैं। जैसे  Faridabad Satta Chart, Ghaziabad Satta Chart, Gali Satta Chart और Disawar Satta Chart देखकर trend का idea मिल जाता है।' },
+  { q: 'Faridabad के results कब मिलते हैं?', a: 'Faridabad market के results daily update होते हैं। आप यहाँ आकर faridabad satta result या satta faridabad result check कर सकते हैं।' },
+  { q: 'क्या सभी major markets cover होते हैं?', a: 'हाँ, A786 Satta पर satta bazar faridabad समेत कई major markets के results और updates मिल जाते हैं।' },
+  { q: 'लोग A786 Satta को क्यों prefer करते हैं?', a: 'क्योंकि यहाँ updates fast मिलते हैं और data organized रहता है। जैसे Delhi Bazar Result, Faridabad Satta Result, Ghaziabad Satta Result, Gali Satta Result, और Disawar Satta Result या charts आसानी से access हो जाते हैं।' },
+  { q: 'क्या अलग-अलग results compare कर सकते हैं?', a: 'हाँ, आप different markets के results compare कर सकते हैं, जैसे Delhi Bazar Result, Faridabad Satta Result, Ghaziabad Satta Result, Gali Satta Result, और Disawar Satta Result.' },
+  { q: 'Charts में क्या information मिलती है?', a: 'Charts में पुराने results date-wise दिखाए जाते हैं, जैसे Faridabad Satta Chart, Ghaziabad Satta Chart, Gali Satta Chart और Disawar Satta Chart, जिससे tracking आसान हो जाती है।' },
+  { q: 'क्या daily check करने के लिए ये platform सही है?', a: 'हाँ, जो लोग रोज़ाना updates देखना चाहते हैं, उनके लिए ये platform useful है चाहे वो Delhi Bazar Result, Faridabad Satta Result, Ghaziabad Satta Result, Gali Satta Result हो या Disawar Satta Result.' },
 ]
 
 export default function FaqSection() {
