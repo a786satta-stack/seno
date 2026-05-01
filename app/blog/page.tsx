@@ -9,7 +9,7 @@ const blogPosts = [
     id: 1,
     slug: "blog1",
     title: "Learn  Charts: A Comprehensive Guide",
-    excerpt: "From pre-independence traditional setups to modern digital platforms, explore how games like Disawar, Faridabad, and Gali have evolved.",
+    excerpt: "From pre -independence traditional setups to modern digital platforms, explore how games like Disawar, Faridabad, and Gali have evolved.",
     date: "April 15, 2026",
     author: "Admin",
     category: "History",
