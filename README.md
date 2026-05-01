@@ -4,7 +4,7 @@ A mobile-first results platform built with **Next.js 14**, **Tailwind CSS**, and
 
 ---
 
-## 🗂 Project Structure
+## 🗂 Project  Structure
 
 ```
 satta-app/
