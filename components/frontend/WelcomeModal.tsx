@@ -27,13 +27,6 @@ export default function WelcomeModal() {
   useEffect(() => {
     // Show modal on mount (page load/refresh)
     setIsOpen(true)
-
-    // Hide after 3 seconds
-    const timer = setTimeout(() => {
-      setIsOpen(false)
-    }, 3000)
-
-    return () => clearTimeout(timer)
   }, [])
 
   if (!isOpen) return null
