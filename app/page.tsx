@@ -13,6 +13,7 @@ import KhaiwaalSection from '@/components/frontend/KhaiwaalSection'
 import SeoContent from '@/components/frontend/SeoContent'
 import FaqSection from '@/components/frontend/FaqSection'
 import Footer from '@/components/frontend/Footer'
+import WelcomeModal from '@/components/frontend/WelcomeModal'
 import { subDays, startOfDay } from 'date-fns'
 
 async function getData() {
@@ -81,6 +82,7 @@ export default async function HomePage() {
   return (
     <div className="min-h-dvh grid-bg" style={{ background: '#FFFFFF' }}>
       <Header tickerItems={tickerItems} />
+      <WelcomeModal />
 
       <main className="pb-safe" style={{ width: '100%' }}>
         <div className="px-3 md:px-8 pb-6 w-full" style={{ maxWidth: 1200, margin: '0 auto' }}>
