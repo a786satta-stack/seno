@@ -13,10 +13,7 @@ import KhaiwaalSection from '@/components/frontend/KhaiwaalSection'
 import SeoContent from '@/components/frontend/SeoContent'
 import FaqSection from '@/components/frontend/FaqSection'
 import Footer from '@/components/frontend/Footer'
-<<<<<<< HEAD
 import WelcomeModal from '@/components/frontend/WelcomeModal'
-import { subDays, startOfDay } from 'date-fns'
-=======
 
 function getISTStartOfDay(offsetDays = 0) {
   const now = new Date()
@@ -30,7 +27,6 @@ function getISTStartOfDay(offsetDays = 0) {
 
   return ist
 }
->>>>>>> afc49721f79cbe0515447687ba58793c717620e1
 
 async function getData() {
   await dbConnect()
