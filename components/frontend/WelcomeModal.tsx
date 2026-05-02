@@ -56,7 +56,7 @@ export default function WelcomeModal() {
           </div>
 
           <h2 className="mb-2 text-3xl font-display tracking-wide" style={{ color: '#111100' }}>
-            A786 Satta में आपका स्वागत है
+            A786 Satta में आपका स्वागत है|
           </h2>
           
           <p className="mb-8 font-mono text-sm leading-relaxed" style={{ color: '#7a6a10' }}>

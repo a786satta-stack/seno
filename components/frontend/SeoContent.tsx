@@ -6,13 +6,13 @@ Users daily basis पर Faridabad Satta Live Result, Ghaziabad Satta Live  Resu
 हर result को simple numeric format में show किया जाता है, जिससे user जल्दी से verify कर सके कि उनका selected number match हुआ है या नहीं।` },
   { title: 'Game System कैसे काम करता है?', content: `यह system 00 से 99 तक के numbers पर आधारित होता है। Users किसी एक number को select करते हैं और result आने के बाद वही number open होने पर return मिलता है।
 आजकल लोग daily updates के लिए ये terms search करते हैं:
-Faridabad Satta Result
-Ghaziabad Satta Result
+<a href="https://www.a786satta.com/chart/faridabad">Faridabad Satta Result</a>
+<a href="https://www.a786satta.com/chart/game-1773938625817">Ghaziabad Satta Result</a>
 Gali Satta Result
-Disawar Satta Result
+<a href="https://www.a786satta.com/chart/disawar">Disawar Satta Result</a>
 A786 Satta इन सभी updates को fast और structured तरीके से provide करता है।` },
   { title: 'A786 Satta पर Covered Games', content: `A786 Satta पर सभी major number-based games के results और charts regularly update होते हैं। Platform पर आपको multiple categories मिलती हैं, जैसे:
-Delhi Bazar Satta Result
+<a href="https://www.a786satta.com/chart/delhi-bazar">Delhi Bazar Satta Result</a>
 Gali Disawar Satta Result
 Gajiyabad Satta Result
 Faridabad Satta Result
