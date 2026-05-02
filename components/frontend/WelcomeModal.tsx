@@ -56,11 +56,11 @@ export default function WelcomeModal() {
           </div>
 
           <h2 className="mb-2 text-3xl font-display tracking-wide" style={{ color: '#111100' }}>
-            Welcome to A786Satta
+            A786 Satta में आपका स्वागत है
           </h2>
           
           <p className="mb-8 font-mono text-sm leading-relaxed" style={{ color: '#7a6a10' }}>
-            Join our official channels to get the fastest live result updates directly on your phone.
+            WhatsApp पर अभी मैसेज करें और आसानी से खेलना शुरू करें| फास्ट रिज़ल्ट और लेटेस्ट अपडेट्स के लिए अभी Telegram जॉइन करें
           </p>
 
           <div className="flex w-full flex-col gap-3">
@@ -71,7 +71,7 @@ export default function WelcomeModal() {
               <WaIcon />
               <div className="text-left">
                 <div className="font-sans" style={{ fontSize: 18, fontWeight: 700, letterSpacing: '.02em' }}>WhatsApp</div>
-                <div className="font-sans" style={{ fontSize: 11, opacity: .9 }}>Join Channel</div>
+                <div className="font-sans" style={{ fontSize: 11, opacity: .9 }}>Game Start Now</div>
               </div>
             </a>
 
