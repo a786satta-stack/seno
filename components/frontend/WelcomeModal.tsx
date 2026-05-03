@@ -32,7 +32,12 @@ export default function WelcomeModal() {
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md transition-opacity duration-300">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md transition-opacity duration-300"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) setIsOpen(false)
+      }}
+    >
       <div 
         className="sk-card relative w-full max-w-md overflow-hidden p-8 shadow-2xl animate-slide-up"
         role="dialog"
@@ -65,7 +70,7 @@ export default function WelcomeModal() {
 
           <div className="flex w-full flex-col gap-3">
             {/* WhatsApp button */}
-            <a href="https://whatsapp.com/channel/0029VbCHriDFCCoWbzrHyk0b" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/919467770669" target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 py-3 px-6 rounded-xl font-bold text-white touch-fb transition-transform active:scale-95"
               style={{ background: '#25D366', boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)', textDecoration: 'none' }}>
               <WaIcon />
@@ -75,14 +80,13 @@ export default function WelcomeModal() {
               </div>
             </a>
 
-            {/* Telegram button */}
-            <a href="https://t.me/a786result" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/917056996422" target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 py-3 px-6 rounded-xl font-bold text-white touch-fb transition-transform active:scale-95"
-              style={{ background: '#0088cc', boxShadow: '0 4px 12px rgba(0, 136, 204, 0.3)', textDecoration: 'none' }}>
-              <TgIcon />
+              style={{ background: '#25D366', boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)', textDecoration: 'none' }}>
+              <WaIcon />
               <div className="text-left">
-                <div className="font-sans" style={{ fontSize: 18, fontWeight: 700, letterSpacing: '.02em' }}>Telegram</div>
-                <div className="font-sans" style={{ fontSize: 11, opacity: .9 }}>Join Channel</div>
+                <div className="font-sans" style={{ fontSize: 18, fontWeight: 700, letterSpacing: '.02em' }}>WhatsApp</div>
+                <div className="font-sans" style={{ fontSize: 11, opacity: .9 }}>Game Start Now</div>
               </div>
             </a>
           </div>
