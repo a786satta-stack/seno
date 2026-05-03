@@ -60,7 +60,7 @@ export default function WelcomeModal() {
           </h2>
           
           <p className="mb-8 font-mono text-sm leading-relaxed" style={{ color: '#7a6a10' }}>
-            WhatsApp पर अभी मैसेज करें और आसानी से खेलना शुरू करें| फास्ट रिज़ल्ट और लेटेस्ट अपडेट्स के लिए अभी Telegram जॉइन करें
+            गेम शुरू करने के लिए नीचे दिए गए WhatsApp बटन पर क्लिक करें। आपको तुरंत एंट्री और सभी ज़रूरी अपडेट वहीं मिल जाएंगे।
           </p>
 
           <div className="flex w-full flex-col gap-3">
