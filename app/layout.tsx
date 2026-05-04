@@ -17,7 +17,11 @@ export const metadata: Metadata = {
     'satta results',
     'satta charts',
     'Disawar result',
+    'delhi disawar satta',
+    'disawar satta result',
+    'gali disawar satta',
     'Faridabad result',
+    'ghaziabad satta chart',
     'Ghaziabad result',
   ],
 
