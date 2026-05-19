@@ -8,11 +8,11 @@ const blogPosts = [
   {
     id: 1,
     slug: "How-to-Read-Disawar-Satta-Chart",
-    title: "Learn  Charts: A Comprehensive Guide",
-    excerpt: "From pre -independence traditional setups to modern digital platforms, explore how games like Disawar, Faridabad, and Gali have evolved.",
-    date: "April 15, 2026",
+    title: "How To Read Disawar Satta Chart Easily For Beginners",
+    excerpt: "Every day, thousands of users search for the Disawar Satta Chart to check live updates, old records, and daily result history. But for beginners, these chart pages often look confusing at first.",
+    date: "May 19, 2026",
     author: "Admin",
-    category: "History",
+    category: "Disawar Satta",
   },
   {
     id: 2,
