@@ -2,8 +2,8 @@ import Header from '@/components/frontend/Header'
 import Footer from '@/components/frontend/Footer'
 
 export const metadata = {
-  title: 'Terms and Conditions | A786',
-  description: 'Terms and conditions for using the A786 results website.',
+  title: 'Terms & Conditions | A786 Satta & User Guidelines',
+  description: 'Read the Terms & Conditions to understand website rules, user responsibilities, content usage policies, and important guidelines for accessing charts, results, and online updates.',
 }
 
 const SECTIONS = [

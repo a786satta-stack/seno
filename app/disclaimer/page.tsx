@@ -1,7 +1,10 @@
 import Header from '@/components/frontend/Header'
 import Footer from '@/components/frontend/Footer'
 
-export const metadata = { title: 'Disclaimer | A786' }
+export const metadata = {
+  title: 'Disclaimer | Website Usage Terms A786 Satta',
+  description: 'Visit the Disclaimer page on A786 Satta to understand website usage terms, result information policy, content limitations, and important user guidelines before using the platform.',
+}
 
 export default function DisclaimerPage() {
   return (

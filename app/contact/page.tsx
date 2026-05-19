@@ -2,8 +2,8 @@ import Header from '@/components/frontend/Header'
 import Footer from '@/components/frontend/Footer'
 
 export const metadata = {
-  title: 'Contact Us | A786',
-  description: 'Contact the A786 results team for inquiries, feedback or support.',
+  title: 'Contact Us | Get Support About A786 Satta',
+  description: 'Contact us for website support, result-related queries, chart information, or general assistance. Reach out easily for help regarding updates, records, and platform details.',
 }
 
 export default function ContactPage() {

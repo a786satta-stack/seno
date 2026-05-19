@@ -1,7 +1,10 @@
 import Header from '@/components/frontend/Header'
 import Footer from '@/components/frontend/Footer'
 
-export const metadata = { title: 'Privacy Policy | A786' }
+export const metadata = {
+  title: 'Privacy Policy | User Data & Security Information',
+  description: 'Read the Privacy Policy to learn how user information, cookies, browsing data, and website activity are handled while accessing charts, results, and updates on the platform.',
+}
 
 export default function PrivacyPage() {
   return (

@@ -8,6 +8,12 @@ import MonthlyChartTable from '@/components/frontend/MonthlyChartTable'
 import Footer from '@/components/frontend/Footer'
 import { format } from 'date-fns'
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Satta Chart Record | Daily Jodi Chart & Old Result History',
+  description: 'Check daily satta chart records with old result history, jodi charts, live number updates, and market-wise record details. Explore fast and updated chart information in one place.',
+}
 
 export default async function ChartPage({ searchParams }: { searchParams: { month?: string; year?: string } }) {
   await dbConnect()
