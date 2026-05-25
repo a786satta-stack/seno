@@ -10,7 +10,7 @@ const blogPosts = [
     slug: "How-to-Read-Disawar-Satta-Chart",
     title: "How To Read Disawar Satta Chart Easily For Beginners",
     excerpt: "Every day, thousands of users search for the Disawar Satta Chart to check live updates, old records, and daily result history. But for beginners, these chart pages often look confusing at first.",
-    date: "May 19, 2026",
+    date: "May 25, 2026",
     author: "Admin",
     category: "Disawar Satta",
   },
