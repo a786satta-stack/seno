@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Header from '@/components/frontend/Header';
 import Footer from '@/components/frontend/Footer';
 
-//2 Mock data for blog posts to demonstrate the layout
+//3 Mock data for blog posts to demonstrate the layout
 const blogPosts = [ 
   {
     id: 1,
