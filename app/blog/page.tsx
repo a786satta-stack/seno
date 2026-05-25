@@ -17,7 +17,7 @@ const blogPosts = [
   {
     id: 2,
     slug: "blog2",
-    title: "The Evolution of Number-Based Lottery Games in India",
+    title: "hiii",
     excerpt: "From pre-independence traditional setups to modern digital platforms, explore how games like Disawar, Faridabad, and Gali have evolved.",
     date: "April 15, 2026",
     author: "Admin",
