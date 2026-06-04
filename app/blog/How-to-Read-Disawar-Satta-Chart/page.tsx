@@ -3,6 +3,7 @@ import { Calendar, Clock, User, ArrowLeft, Share2 } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/frontend/Header';
 import Footer from '@/components/frontend/Footer';
+import Image from "next/image";
 
 export const metadata = {
   title: "How To Read Disawar Satta Chart Easily For Beginners",
@@ -59,7 +60,7 @@ const page = () => {
               <div>
                 <p className="font-bold text-primary font-body text-lg">Admin</p>
                 <p className="text-sm text-muted flex items-center gap-1 font-mono">
-                  <Calendar size={14} /> Oct 24, 2023
+                  <Calendar size={14} /> May 25, 2026
                 </p>
               </div>
             </div>
@@ -68,7 +69,14 @@ const page = () => {
 
         {/* Featured Image */}
         <div className="w-full h-[250px] md:h-[400px] bg-surface-2 rounded-xl mb-10 overflow-hidden border border-border flex items-center justify-center">
-           <p className="text-muted font-mono italic">[ Featured Image Placeholder ]</p>
+           <Image
+    src="/images/featured-image.jpg" // apni image ka path yahan do
+    alt="Blog Featured Image"
+    fill
+    className="object-cover"
+    priority
+  />
+           <p className="text-muted font-mono italic"></p>
         </div>
 
         {/* Content Section */}
