@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Calendar, Clock, User, ArrowLeft, Share2 } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/frontend/Header';
@@ -61,9 +62,9 @@ const page = () => {
         </header>
 
         {/* Featured Image */}
-        <div className="w-full h-[250px] md:h-[400px] bg-surface-2 rounded-xl mb-10 overflow-hidden border border-border flex items-center justify-center">
+        <div className="relative w-full h-[250px] md:h-[400px] bg-surface-2 rounded-xl mb-10 overflow-hidden border border-border">
            <Image
-  src="/public/images/What Is Gali Disawar Satta Simple Guide For New Users.png"
+  src="/images/What Is Gali Disawar Satta Simple Guide For New Users.png"
   alt="Featured Image"
   fill
   className="object-cover"
