@@ -62,7 +62,12 @@ const page = () => {
 
         {/* Featured Image */}
         <div className="w-full h-[250px] md:h-[400px] bg-surface-2 rounded-xl mb-10 overflow-hidden border border-border flex items-center justify-center">
-           <p className="text-muted font-mono italic">[ Featured Image Placeholder ]</p>
+           <Image
+  src="/images/blog/gali-disawar-satta-chart-guide.jpg"
+  alt="Featured Image"
+  fill
+  className="object-cover"
+/>
         </div>
 
         {/* Content Section */}
