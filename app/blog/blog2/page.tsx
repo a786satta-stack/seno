@@ -63,7 +63,7 @@ const page = () => {
         {/* Featured Image */}
         <div className="w-full h-[250px] md:h-[400px] bg-surface-2 rounded-xl mb-10 overflow-hidden border border-border flex items-center justify-center">
            <Image
-  src="/images/blog/gali-disawar-satta-chart-guide.jpg"
+  src="/public/images/What Is Gali Disawar Satta Simple Guide For New Users.png"
   alt="Featured Image"
   fill
   className="object-cover"
