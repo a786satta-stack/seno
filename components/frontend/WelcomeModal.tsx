@@ -70,7 +70,7 @@ export default function WelcomeModal() {
 
           <div className="flex w-full flex-col gap-3">
             {/* WhatsApp button */}
-            <a href="https://wa.me/919467770669" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/+447478033772" target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 py-3 px-6 rounded-xl font-bold text-white touch-fb transition-transform active:scale-95"
               style={{ background: '#25D366', boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)', textDecoration: 'none' }}>
               <WaIcon />
