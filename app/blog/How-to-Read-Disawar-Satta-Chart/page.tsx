@@ -68,9 +68,9 @@ const page = () => {
         </header>
 
         {/* Featured Image */}
-        <div className="w-full h-[400px] md:h-[400px] bg-surface-2 rounded-xl mb-10 overflow-hidden border border-border flex items-center justify-center">
+        <div className="w-full h-[250px] md:h-[400px] bg-surface-2 rounded-xl mb-10 overflow-hidden border border-border flex items-center justify-center">
            <Image
-    src="/images/featured-image.jpg" // apni image ka path yahan do
+    src="/images/How To Read Disawar Satta Chart Easily For Beginners.png" // apni image ka path yahan do
     alt="Blog Featured Image"
     fill
     className="object-cover"
