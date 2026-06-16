@@ -2,12 +2,23 @@
 
   export default function WhatsAppButton({ phone = '+447478033772', message = 'Hello!' }: { phone?: string; message?: string }) {
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
+    
+    const handleWhatsAppClick = () => {
+  if (typeof window !== 'undefined' && (window as any).gtag) {
+    (window as any).gtag('event', 'whatsapp_click', {
+      event_category: 'engagement',
+      event_label: phone,
+      value: 1,
+    });
+  }
+}
 
     return (
-      <a
+     <a
         href={url}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={handleWhatsAppClick}
         aria-label="Chat on WhatsApp"
         style={{
           position: 'fixed',
