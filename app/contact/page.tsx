@@ -1,5 +1,3 @@
-'use client';
-
 import Header from '@/components/frontend/Header'
 import Footer from '@/components/frontend/Footer'
 
@@ -54,10 +52,7 @@ export default function ContactPage() {
                 href="https://wa.me/919485519859"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => {
-    (window as any).gtag?.("event", "whatsapp_click", {
-  button_location: "footer_whatsapp",
-    });
+                
   }}
                 className="inline-flex items-center gap-3 px-6 py-3 rounded-full font-bold text-white"
                 style={{ background: '#25D366', boxShadow: '0 4px 14px rgba(37,211,102,0.4)' }}
