@@ -3,15 +3,15 @@
   export default function WhatsAppButton({ phone = '+447478033772', message = 'Hello!' }: { phone?: string; message?: string }) {
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
     
-    const handleWhatsAppClick = () => {
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('event', 'whatsapp_click', {
-      event_category: 'engagement',
-      event_label: phone,
-      value: 1,
-    });
-  }
-}
+   const handleWhatsAppClick = () => {
+  console.log("WhatsApp clicked");
+
+  (window as any).gtag?.("event", "whatsapp_click", {
+    event_category: "lead_generation",
+    event_label: "floating_button",
+    page_path: window.location.pathname,
+  });
+};
 
     return (
      <a
