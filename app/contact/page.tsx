@@ -30,7 +30,7 @@ export default function ContactPage() {
         {/* Contact card */}
         <div className="sk-card rounded-2xl overflow-hidden">
           <div className="px-4 py-6 space-y-6 text-center">
-            {/* Email */}
+            {/* Email  */}
             <div>
               <p className="text-muted text-xs font-mono uppercase tracking-widest mb-2">Email Us</p>
               <a
