@@ -4,12 +4,14 @@
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
     
    const handleWhatsAppClick = () => {
-  (window as any).gtag?.("event", "whatsapp_click", {
-    page_path: window.location.pathname,
-    page_title: document.title,
-    button_location: "floating_whatsapp",
-  });
-};
+  if (typeof window !== 'undefined' && (window as any).gtag) {
+    (window as any).gtag('event', 'whatsapp_click', {
+      event_category: 'engagement',
+      event_label: phone,
+      value: 1,
+    });
+  }
+}
     return (
      <a
         href={url}
