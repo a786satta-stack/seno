@@ -80,7 +80,7 @@ export default function WelcomeModal() {
               </div>
             </a>
 
-            <a href="https://wa.me/917056996422" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/https://wa.me/+12295989178" target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 py-3 px-6 rounded-xl font-bold text-white touch-fb transition-transform active:scale-95"
               style={{ background: '#25D366', boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)', textDecoration: 'none' }}>
               <WaIcon />
