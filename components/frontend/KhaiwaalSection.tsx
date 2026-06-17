@@ -21,7 +21,7 @@ const GAME_TIMINGS = [
 ]
 const KHAIWALS = [
   { title: 'सीधे सट्टा कंपनी का No 1 खाईवाल', name: 'AZAD BHAI KHAIWAL',  phone: '+447478033772', color: '#FF6B00' },
-  { title: 'सीधे सट्टा कंपनी का No 1 खाईवाल', name: 'RADHE BHAI KHAIWAL', phone: '+1 2295989178', color: '#7C3AED' },
+  { title: 'सीधे सट्टा कंपनी का No 1 खाईवाल', name: 'RADHE BHAI KHAIWAL', phone: '+12295989178', color: '#7C3AED' },
 ]
 
 function WaIcon({ size = 28 }: { size?: number }) {
