@@ -1,4 +1,4 @@
-import Header from '@/components/frontend/Header'
+import Header from '@/components/frontend/Header' 
 import Footer from '@/components/frontend/Footer'
 
 export const metadata = {
