@@ -1,4 +1,4 @@
-export default function SocialChannels({
+export default function SocialChannels({ 
   whatsappLink = 'https://whatsapp.com/channel/0029VbCHriDFCCoWbzrHyk0b',
   telegramLink = 'https://t.me/a786result',
 }: { whatsappLink?: string; telegramLink?: string }) {
