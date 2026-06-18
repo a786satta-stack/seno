@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; 
 import Link from 'next/link';
 import Header from '@/components/frontend/Header';
 import Footer from '@/components/frontend/Footer';
