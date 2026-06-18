@@ -54,7 +54,7 @@ export default function ContactPage() {
                 rel="noopener noreferrer"
                 onClick={() => {
     window.gtag?.("event", "whatsapp_click", {
-      button_location: "footer_whatsapp",
+      button_location: "contact_page",
     });
   }}
                 className="inline-flex items-center gap-3 px-6 py-3 rounded-full font-bold text-white"
