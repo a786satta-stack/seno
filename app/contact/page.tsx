@@ -30,7 +30,7 @@ export default function ContactPage() {
         {/* Contact card */}
         <div className="sk-card rounded-2xl overflow-hidden">
           <div className="px-4 py-6 space-y-6 text-center">
-            {/* Email */}
+            {/* Email  */}
             <div>
               <p className="text-muted text-xs font-mono uppercase tracking-widest mb-2">Email Us</p>
               <a
@@ -52,11 +52,14 @@ export default function ContactPage() {
                 href="https://wa.me/919485519859"
                 target="_blank"
                 rel="noopener noreferrer"
+<<<<<<< HEAD
                 onClick={() => {
     window.gtag?.("event", "whatsapp_click", {
       button_location: "contact_page",
     });
   }}
+=======
+>>>>>>> d22d1a4ec1dc99ce42990c41fd0559001a9961f2
                 className="inline-flex items-center gap-3 px-6 py-3 rounded-full font-bold text-white"
                 style={{ background: '#25D366', boxShadow: '0 4px 14px rgba(37,211,102,0.4)' }}
               >
