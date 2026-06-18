@@ -1,6 +1,6 @@
 export const dynamic = 'force-dynamic'
 
-import { dbConnect } from '@/lib/db'
+import { dbConnect } from '@/lib/db' 
 import { Game } from '@/models/Game'
 import { Result } from '@/models/Result'
 import Header from '@/components/frontend/Header'
