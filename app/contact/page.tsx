@@ -52,14 +52,6 @@ export default function ContactPage() {
                 href="https://wa.me/919485519859"
                 target="_blank"
                 rel="noopener noreferrer"
-<<<<<<< HEAD
-                onClick={() => {
-    window.gtag?.("event", "whatsapp_click", {
-      button_location: "contact_page",
-    });
-  }}
-=======
->>>>>>> d22d1a4ec1dc99ce42990c41fd0559001a9961f2
                 className="inline-flex items-center gap-3 px-6 py-3 rounded-full font-bold text-white"
                 style={{ background: '#25D366', boxShadow: '0 4px 14px rgba(37,211,102,0.4)' }}
               >
@@ -69,7 +61,11 @@ export default function ContactPage() {
                   <path d="M21.8 19.4c-.3-.15-1.766-.87-2.04-.97-.273-.1-.472-.15-.67.15-.198.3-.768.97-.94 1.17-.173.198-.347.223-.647.075-.3-.15-1.267-.467-2.413-1.488-.892-.795-1.494-1.777-1.669-2.077-.174-.3-.018-.462.13-.61.134-.134.3-.348.45-.522.15-.174.2-.298.3-.497.1-.198.05-.373-.025-.522-.075-.15-.67-1.613-.918-2.21-.242-.578-.487-.5-.67-.51-.173-.008-.372-.01-.57-.01-.2 0-.522.075-.795.373-.273.298-1.042 1.018-1.042 2.483s1.067 2.88 1.216 3.078c.15.198 2.1 3.205 5.087 4.493.71.307 1.265.49 1.697.627.713.227 1.362.195 1.875.118.572-.085 1.766-.722 2.015-1.42.25-.698.25-1.297.174-1.42-.074-.124-.273-.198-.572-.348Z" fill="#25D366"/>
                 </svg>
                 <div className="text-left">
-                  <div style={{ fontSize: '15px', fontWeight: 700 }}>Chat on WhatsApp</div>
+                  <div style={{ fontSize: '15px', fontWeight: 700 }} onClick={() => {
+    window.gtag?.("event", "whatsapp_click", {
+      button_location: "footer_whatsapp",
+    });
+  }}>Chat on WhatsApp</div>
                   <div style={{ fontSize: '11px', opacity: 0.9 }}>Click to open chat</div>
                 </div>
               </a>

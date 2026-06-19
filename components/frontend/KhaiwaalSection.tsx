@@ -147,16 +147,8 @@ export default function KhaiwaalSection() {
             {/* WhatsApp btn */}
             <a href={`https://wa.me/${k.phone}`} target="_blank" rel="noopener noreferrer" className="btn-wa">
               <WaIcon size={30} />
-              <div onClick={() => {
-    window.gtag?.("event", "whatsapp_click", {
-      button_location: "side_banner",
-    });
-  }}>
-                <div style={{ fontSize: 18, fontWeight: 700, lineHeight: 1.2 }} onClick={() => {
-    window.gtag?.("event", "whatsapp_click", {
-      button_location: "side_banner",
-    });
-  }}>WhatsApp</div>
+              <div>
+                <div style={{ fontSize: 18, fontWeight: 700, lineHeight: 1.2 }}>WhatsApp</div>
                 <div style={{ fontSize: 12, opacity: .88 }}>Click to chat</div>
               </div>
             </a>
