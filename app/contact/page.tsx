@@ -62,9 +62,9 @@ export default function ContactPage() {
                 </svg>
                 <div className="text-left">
                   <div style={{ fontSize: '15px', fontWeight: 700 }} onClick={() => {
-    window.gtag?.("event", "whatsapp_click", {
-      button_location: "footer_whatsapp",
-    });
+    (window as any).gtag?.("event", "whatsapp_click", {
+  button_location: "footer_whatsapp",
+});
   }}>Chat on WhatsApp</div>
                   <div style={{ fontSize: '11px', opacity: 0.9 }}>Click to open chat</div>
                 </div>
