@@ -1,5 +1,6 @@
 import Header from '@/components/frontend/Header' 
 import Footer from '@/components/frontend/Footer'
+import WhatsAppButton from '@/components/WhatsAppButton'
 
 export const metadata = {
   title: 'Contact Us | Get Support About A786 Satta',
