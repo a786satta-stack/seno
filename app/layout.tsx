@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from 'next' 
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { Toaster } from 'react-hot-toast'
 import SessionProvider from '@/components/SessionProvider'
@@ -107,11 +107,6 @@ export default function RootLayout({
         <WhatsAppButton
           phone="919485519859"
           message="Hello! I have a query about A786 results."
-          onClick={() => {
-    window.gtag?.("event", "whatsapp_click", {
-      button_location: "home_page",
-    });
-  }}
         />
 
         <Toaster

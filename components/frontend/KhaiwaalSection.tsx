@@ -1,4 +1,4 @@
-'use client' 
+'use client'
 import { useState } from 'react'
 import { ChevronDown, ChevronUp, Phone, Clock, CheckCircle2 } from 'lucide-react'
 
@@ -21,7 +21,7 @@ const GAME_TIMINGS = [
 ]
 const KHAIWALS = [
   { title: 'सीधे सट्टा कंपनी का No 1 खाईवाल', name: 'AZAD BHAI KHAIWAL',  phone: '+447478033772', color: '#FF6B00' },
-  { title: 'सीधे सट्टा कंपनी का No 1 खाईवाल', name: 'RADHE BHAI KHAIWAL', phone: '+12295989178', color: '#7C3AED' },
+  { title: 'सीधे सट्टा कंपनी का No 1 खाईवाल', name: 'RADHE BHAI KHAIWAL', phone: '917056996422', color: '#7C3AED' },
 ]
 
 function WaIcon({ size = 28 }: { size?: number }) {
@@ -147,16 +147,8 @@ export default function KhaiwaalSection() {
             {/* WhatsApp btn */}
             <a href={`https://wa.me/${k.phone}`} target="_blank" rel="noopener noreferrer" className="btn-wa">
               <WaIcon size={30} />
-              <div onClick={() => {
-    window.gtag?.("event", "whatsapp_click", {
-      button_location: "side_banner",
-    });
-  }}>
-                <div style={{ fontSize: 18, fontWeight: 700, lineHeight: 1.2 }} onClick={() => {
-    window.gtag?.("event", "whatsapp_click", {
-      button_location: "side_banner",
-    });
-  }}>WhatsApp</div>
+              <div>
+                <div style={{ fontSize: 18, fontWeight: 700, lineHeight: 1.2 }}>WhatsApp</div>
                 <div style={{ fontSize: 12, opacity: .88 }}>Click to chat</div>
               </div>
             </a>

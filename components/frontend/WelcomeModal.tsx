@@ -1,4 +1,4 @@
-'use client' 
+'use client'
 import { useState, useEffect } from 'react'
 import { X } from 'lucide-react'
 
@@ -72,32 +72,20 @@ export default function WelcomeModal() {
             {/* WhatsApp button */}
             <a href="https://wa.me/+447478033772" target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 py-3 px-6 rounded-xl font-bold text-white touch-fb transition-transform active:scale-95"
-              style={{ background: '#25D366', boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)', textDecoration: 'none' }} onClick={() => {
-    window.gtag?.("event", "whatsapp_click", {
-      button_location: "contact_page",
-    });
-  }}>
+              style={{ background: '#25D366', boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)', textDecoration: 'none' }}>
               <WaIcon />
               <div className="text-left">
-                <div className="font-sans" style={{ fontSize: 18, fontWeight: 700, letterSpacing: '.02em' }} onClick={() => {
-    window.gtag?.("event", "whatsapp_click", {
-      button_location: "game_start",
-    });
-  }}>WhatsApp</div>
+                <div className="font-sans" style={{ fontSize: 18, fontWeight: 700, letterSpacing: '.02em' }}>WhatsApp</div>
                 <div className="font-sans" style={{ fontSize: 11, opacity: .9 }}>Game Start Now</div>
               </div>
             </a>
 
-            <a href="https://wa.me/+12295989178" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/917056996422" target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 py-3 px-6 rounded-xl font-bold text-white touch-fb transition-transform active:scale-95"
               style={{ background: '#25D366', boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)', textDecoration: 'none' }}>
               <WaIcon />
               <div className="text-left">
-                <div className="font-sans" style={{ fontSize: 18, fontWeight: 700, letterSpacing: '.02em' }} onClick={() => {
-    window.gtag?.("event", "whatsapp_click", {
-      button_location: "contact_page",
-    });
-  }}>WhatsApp</div>
+                <div className="font-sans" style={{ fontSize: 18, fontWeight: 700, letterSpacing: '.02em' }}>WhatsApp</div>
                 <div className="font-sans" style={{ fontSize: 11, opacity: .9 }}>Game Start Now</div>
               </div>
             </a>
