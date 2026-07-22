@@ -2,6 +2,13 @@
 import { useState } from 'react'
 import { ChevronDown, ChevronUp, Phone, Clock, CheckCircle2 } from 'lucide-react'
 
+// Extend the Window interface to include gtag for analytics
+declare global {
+  interface Window {
+    gtag?: (command: 'event', action: string, params: { [key: string]: any }) => void;
+  }
+}
+
 const GAME_TIMINGS = [
   { name: 'कुबेर सिटी', time: '12:15 PM', emoji: '🏢' },
   { name: 'नोएडा सिटी', time: '12:50 PM', emoji: '🏙️' },
@@ -36,6 +43,17 @@ function WaIcon({ size = 28 }: { size?: number }) {
 
 export default function KhaiwaalSection() {
   const [expanded, setExpanded] = useState<Record<number, boolean>>({ 0: true, 1: false })
+
+  const handleContactClick = (khaiwalName: string, contactMethod: 'WhatsApp' | 'Call') => {
+    // Fire Google Analytics event if gtag is available
+    if (window.gtag) {
+      window.gtag('event', 'click', {
+        'event_category': 'khaiwal_contact',
+        'event_action': contactMethod,
+        'event_label': `${khaiwalName} - ${contactMethod} Click`
+      });
+    }
+  };
 
   return (
     <div className="mt-4 mb-4 space-y-5">
@@ -145,7 +163,12 @@ export default function KhaiwaalSection() {
             </div>
 
             {/* WhatsApp btn */}
-            <a href={`https://wa.me/${k.phone}`} target="_blank" rel="noopener noreferrer" className="btn-wa">
+            <a
+              href={`https://wa.me/${k.phone}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-wa"
+              onClick={() => handleContactClick(k.name, 'WhatsApp')}>
               <WaIcon size={30} />
               <div>
                 <div style={{ fontSize: 18, fontWeight: 700, lineHeight: 1.2 }}>WhatsApp</div>
@@ -154,7 +177,11 @@ export default function KhaiwaalSection() {
             </a>
 
             {/* Call btn */}
-            <a href={`tel:+${k.phone}`} className="btn-gold" style={{ textDecoration: 'none' }}>
+            <a
+              href={`tel:+${k.phone}`}
+              className="btn-gold"
+              style={{ textDecoration: 'none' }}
+              onClick={() => handleContactClick(k.name, 'Call')}>
               <Phone size={18} strokeWidth={2.5} />
               CALL NOW
             </a>
