@@ -1,7 +1,24 @@
   'use client'
 
+  // Extend the Window interface to include gtag
+  declare global {
+    interface Window {
+      gtag?: (command: 'event', action: string, params: { [key: string]: any }) => void;
+    }
+  }
+
   export default function WhatsAppButton({ phone = '+447478033772', message = 'Hello!' }: { phone?: string; message?: string }) {
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
+
+    const handleClick = () => {
+      // Fire Google Analytics event
+      if (window.gtag) {
+        window.gtag('event', 'click', {
+          'event_category': 'whatsapp',
+          'event_label': 'WhatsApp Chat Button Click'
+        });
+      }
+    }
 
     return (
       <a
@@ -35,6 +52,7 @@
           el.style.transform = 'scale(1)'
           el.style.boxShadow = '0 4px 16px rgba(37,211,102,0.35), 0 2px 6px rgba(0,0,0,0.3)'
         }}
+        onClick={handleClick}
       >
         {/* WhatsApp SVG icon */}
         <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
