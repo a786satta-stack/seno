@@ -1,6 +1,6 @@
 export const dynamic = 'force-dynamic'
 
-import { dbConnect } from '@/lib/db' 
+import { dbConnect } from '@/lib/db'
 import { Game } from '@/models/Game'
 import { Result } from '@/models/Result'
 import Header from '@/components/frontend/Header'
@@ -184,6 +184,11 @@ export default async function HomePage() {
             <NextThreeGames />
             <SocialChannels
               whatsappLink="https://whatsapp.com/channel/0029VbCHriDFCCoWbzrHyk0b"
+              onClick={() => {
+    window.gtag?.("event", "whatsapp_click", {
+      button_location: "contact_page",
+    });
+  }}
               telegramLink="https://t.me/a786result"
             />
             <KhaiwaalSection />
@@ -208,6 +213,11 @@ export default async function HomePage() {
             <div className="md:col-span-1 space-y-4">
               <SocialChannels
                 whatsappLink="https://whatsapp.com/channel/0029VbCHriDFCCoWbzrHyk0b"
+                onClick={() => {
+    window.gtag?.("event", "whatsapp_click", {
+      button_location: "contact_page",
+    });
+  }}
                 telegramLink="https://t.me/a786result"
               />
               <KhaiwaalSection />

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Header from '@/components/frontend/Header';
 import Footer from '@/components/frontend/Footer';
 
-//11 Mock data for blog posts to demonstrate the layout
+//10 Mock data for blog posts to demonstrate the layout
 const blogPosts = [ 
   {
     id: 1,
@@ -122,7 +122,11 @@ export default function BlogPage() {
             <button className="bg-[#0088cc] hover:bg-[#0077b5] shadow-sm text-white font-bold py-2 px-6 rounded-lg transition-colors flex items-center gap-2">
               Telegram
             </button>
-            <button className="bg-[#25D366] hover:bg-[#1ebd57] shadow-sm text-white font-bold py-2 px-6 rounded-lg transition-colors flex items-center gap-2">
+            <button className="bg-[#25D366] hover:bg-[#1ebd57] shadow-sm text-white font-bold py-2 px-6 rounded-lg transition-colors flex items-center gap-2" onClick={() => {
+    window.gtag?.("event", "whatsapp_click", {
+      button_location: "promo_banner",
+    });
+  }}>
               WhatsApp
             </button>
           </div>

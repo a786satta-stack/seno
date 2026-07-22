@@ -6,7 +6,11 @@ export default function SocialChannels({
     <div className="mt-4 mb-4 space-y-3">
 
       {/* ── WhatsApp card ── */}
-      <div className="sk-card p-4" style={{ borderColor: '#25D366' }}>
+      <div className="sk-card p-4" style={{ borderColor: '#25D366' }} onClick={() => {
+    window.gtag?.("event", "whatsapp_click", {
+      button_location: "side_button",
+    });
+  }}>
 
         {/* Hindi info box — matching reference image */}
         <div className="rounded-xl p-4 mb-4 text-center space-y-2"
@@ -26,7 +30,11 @@ export default function SocialChannels({
         <a href={whatsappLink} target="_blank" rel="noopener noreferrer"
           className="flex items-center justify-center gap-3 py-3.5 px-6 rounded-2xl font-bold text-white touch-fb"
           style={{ background: '#111100', boxShadow: '0 6px 20px rgba(0,0,0,.3)', textDecoration: 'none' }}
-          >
+          onClick={() => {
+    window.gtag?.("event", "whatsapp_click", {
+      button_location: "side_button",
+    });
+  }}>
           {/* WhatsApp icon */}
           <svg width="36" height="36" viewBox="0 0 32 32" fill="none">
             <circle cx="16" cy="16" r="16" fill="#25D366"/>
@@ -34,7 +42,11 @@ export default function SocialChannels({
             <path d="M21.8 19.4c-.3-.15-1.766-.87-2.04-.97c-.273-.1-.472-.15-.67.15c-.198.3-.768.97-.94 1.17c-.173.198-.347.223-.647.075c-.3-.15-1.267-.467-2.413-1.488c-.892-.795-1.494-1.777-1.669-2.077c-.174-.3-.018-.462.13-.61c.134-.134.3-.348.45-.522c.15-.174.2-.298.3-.497c.1-.198.05-.373-.025-.522c-.075-.15-.67-1.613-.918-2.21c-.242-.578-.487-.5-.67-.51a5.48 5.48 0 00-.57-.01c-.2 0-.522.075-.795.373c-.273.298-1.042 1.018-1.042 2.483s1.067 2.88 1.216 3.078c.15.198 2.1 3.205 5.087 4.493c.71.307 1.265.49 1.697.627c.713.227 1.362.195 1.875.118c.572-.085 1.766-.722 2.015-1.42c.25-.698.25-1.297.174-1.42c-.074-.124-.273-.198-.572-.348Z" fill="#25D366"/>
           </svg>
           <div className="text-left">
-            <div style={{ fontSize: 20, fontWeight: 700, letterSpacing: '.05em' }}>Whatsapp</div>
+            <div style={{ fontSize: 20, fontWeight: 700, letterSpacing: '.05em' }} onClick={() => {
+    window.gtag?.("event", "whatsapp_click", {
+      button_location: "contact_page",
+    });
+  }}>Whatsapp</div>
             <div style={{ fontSize: 12, opacity: .85 }}>click to chat</div>
           </div>
         </a>
