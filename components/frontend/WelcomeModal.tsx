@@ -2,6 +2,13 @@
 import { useState, useEffect } from 'react'
 import { X } from 'lucide-react'
 
+// Extend the Window interface to include gtag for analytics
+declare global {
+  interface Window {
+    gtag?: (command: 'event', action: string, params: { [key: string]: any }) => void;
+  }
+}
+
 function WaIcon() {
   return (
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="shrink-0">
@@ -28,6 +35,18 @@ export default function WelcomeModal() {
     // Show modal on mount (page load/refresh)
     setIsOpen(true)
   }, [])
+
+  const handleWhatsAppClick = (phoneNumber: string) => {
+    // Fire Google Analytics event if gtag is available
+    if (window.gtag) {
+      window.gtag('event', 'click', {
+        'event_category': 'whatsapp_modal',
+        'event_label': `Welcome Modal WhatsApp Click - ${phoneNumber}`
+      });
+    }
+  };
+
+
 
   if (!isOpen) return null
 
@@ -71,6 +90,7 @@ export default function WelcomeModal() {
           <div className="flex w-full flex-col gap-3">
             {/* WhatsApp button */}
             <a href="https://wa.me/+447478033772" target="_blank" rel="noopener noreferrer"
+              onClick={() => handleWhatsAppClick('+447478033772')}
               className="flex items-center justify-center gap-3 py-3 px-6 rounded-xl font-bold text-white touch-fb transition-transform active:scale-95"
               style={{ background: '#25D366', boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)', textDecoration: 'none' }}>
               <WaIcon />
@@ -81,6 +101,7 @@ export default function WelcomeModal() {
             </a>
 
             <a href="https://wa.me/917056996422" target="_blank" rel="noopener noreferrer"
+              onClick={() => handleWhatsAppClick('917056996422')}
               className="flex items-center justify-center gap-3 py-3 px-6 rounded-xl font-bold text-white touch-fb transition-transform active:scale-95"
               style={{ background: '#25D366', boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)', textDecoration: 'none' }}>
               <WaIcon />
