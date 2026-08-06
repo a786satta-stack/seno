@@ -89,8 +89,8 @@ export default function WelcomeModal() {
 
           <div className="flex w-full flex-col gap-3">
             {/* WhatsApp button */}
-            <a href="https://wa.me/+447478033772" target="_blank" rel="noopener noreferrer"
-              onClick={() => handleWhatsAppClick('+447478033772')}
+            <a href="https://wa.me/+12295989178" target="_blank" rel="noopener noreferrer"
+              onClick={() => handleWhatsAppClick('+12295989178')}
               className="flex items-center justify-center gap-3 py-3 px-6 rounded-xl font-bold text-white touch-fb transition-transform active:scale-95"
               style={{ background: '#25D366', boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)', textDecoration: 'none' }}>
               <WaIcon />
@@ -100,8 +100,8 @@ export default function WelcomeModal() {
               </div>
             </a>
 
-            <a href="https://wa.me/917056996422" target="_blank" rel="noopener noreferrer"
-              onClick={() => handleWhatsAppClick('917056996422')}
+            <a href="https://wa.me/+447478033772" target="_blank" rel="noopener noreferrer"
+              onClick={() => handleWhatsAppClick('+447478033772')}
               className="flex items-center justify-center gap-3 py-3 px-6 rounded-xl font-bold text-white touch-fb transition-transform active:scale-95"
               style={{ background: '#25D366', boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)', textDecoration: 'none' }}>
               <WaIcon />
