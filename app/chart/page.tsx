@@ -11,8 +11,8 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Satta Chart Record | Daily Jodi Chart & Old Result History',
-  description: 'Check daily satta chart records with old result history, jodi charts, live number updates, and market-wise record details. Explore fast and updated chart information in one place.',
+  title: 'Satta Chart 2026 | Satta Results & Live Result Updates',
+  description: 'Explore Satta Chart, Satta Results, Satta Live Results, live chart updates, chart records and daily result charts all in one place at a786 satta. Explore fast and updated chart information in one place.',
 }
 
 export default async function ChartPage({ searchParams }: { searchParams: { month?: string; year?: string } }) {

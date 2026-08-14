@@ -8,9 +8,9 @@ import Script from 'next/script'
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.a786satta.com'),
 
-  title: 'A786 Satta King Result Today | Live Chart & Updates',
+  title: 'A786 Satta Result Today | Live Gali Disawar Faridabad Ghaziabad Result',
   description:
-    'Get A786 Satta King Result Today with Gali, Desawar, Faridabad, Ghaziabad results, live charts, and fast Satta Bazar updates daily.',
+    'Check A786 Satta Result Today with live Gali, Disawar, Faridabad and Ghaziabad results, updated charts, old record charts, jodi charts and daily market updates in one place.',
 
   keywords: [
     'A786 satta',
@@ -22,12 +22,12 @@ export const metadata: Metadata = {
     'gali disawar satta',
     'Faridabad result',
     'ghaziabad satta chart',
-    'Ghaziabad result',
+    'ghaziabad satta result',
     'disawar satta result',
     'gali disawar satta result',
     'gali disawar satta',
-    'ghaziabad satta chart',
-    'faridabad satta result​',
+    'ghaziabad satta',
+    'satta ghaziabad​',
   ],
 
   robots: 'index, follow',
