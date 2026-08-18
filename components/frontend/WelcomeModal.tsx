@@ -94,7 +94,7 @@ export default function WelcomeModal() {
               event_category: "engagement",
             event_label: "Alert Button 1",
             link_url: "https://wa.me/+447478033772",
-    });}
+    });
             className="flex items-center justify-center gap-3 py-3 px-6 rounded-xl font-bold text-white touch-fb transition-transform active:scale-95"
             style={{ background: '#25D366', boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)', textDecoration: 'none' }}>
             <WaIcon />
