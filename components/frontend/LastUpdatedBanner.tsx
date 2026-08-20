@@ -52,7 +52,8 @@ export default function LastUpdatedBanner({ gameName, resultNumber, gameOpenTime
 
           <p className="font-mono text-xs mb-3 text-center py-2 rounded-xl"
             style={{ color: '#7a6a10', background: '#FFFDE7', border: '1px solid #FFE000' }}>
-            हा भाई यही आती हे सबसे पहले खबर — रुको और देखो
+            A786 Satta provides updated Satta 786, Ghaziabad, Gali and
+Disawar results, daily charts and market updates.
           </p>
 
           <div className="flex items-center justify-between">

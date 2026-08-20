@@ -1,6 +1,6 @@
 const SECTIONS = [
-  { title: 'A786 Satta क्या है?', content: `A786 Satta एक trusted online platform है जहाँ आपको सभी popular satta games के latest results, live updates और detailed charts एक ही जगह पर मिलते हैं। यह platform खासतौर पर उन users के लिए बनाया गया है जो daily basis पर accurate और fast satta updates देखना चाहते हैं।
-यहाँ पर आप आसानी से Faridabad Satta Result, Ghaziabad Satta Result, Gali Satta Result, और Disawar Satta Result जैसी important updates real-time में check कर सकते हैं।` },
+  { title: 'A786 Satta क्या है?', content: `A786 Satta Website एक trusted online platform है जहाँ आपको सभी popular satta games के latest results, live updates और detailed charts एक ही जगह पर मिलते हैं। यह platform खासतौर पर उन users के लिए बनाया गया है जो daily basis पर accurate और fast satta updates देखना चाहते हैं।
+यहाँ पर आप आसानी से Faridabad Satta Result,ghaziabad satta, फरीदाबाद सट्टा, ghaziabad satta result, सट्टा गाजियाबाद, Gali Satta Result, और Disawar Satta Result जैसी important updates real-time में check कर सकते हैं।` },
   { title: 'A786 Satta Results कैसे काम करते हैं?', content: `A786 Satta पर results एक structured और easy-to-understand format में दिखाए जाते हैं, जिससे users बिना confusion के latest updates check कर सकें। जब भी किसी game का result announce होता है, उसे तुरंत chart section में update कर दिया जाता है।
 Users daily basis पर Faridabad Satta Live Result, Ghaziabad Satta Live  Result, Gali Satta Live Result, और Disawar Satta Live Result जैसे results देखने के लिए platform visit करते हैं। इसी तरह, gali satta live result और Ghaziabad Satta Result भी real-time में update किए जाते हैं ताकि कोई delay न हो।
 हर result को simple numeric format में show किया जाता है, जिससे user जल्दी से verify कर सके कि उनका selected number match हुआ है या नहीं।` },
@@ -13,9 +13,11 @@ Gali Satta Result
 A786 Satta इन सभी updates को fast और structured तरीके से provide करता है।` },
   { title: 'A786 Satta पर Covered Games', content: `A786 Satta पर सभी major number-based games के results और charts regularly update होते हैं। Platform पर आपको multiple categories मिलती हैं, जैसे:
 <a href="https://www.a786satta.com/chart/delhi-bazar">Delhi Bazar Satta Result</a>
-Gali Disawar Satta Result
-Gajiyabad Satta Result
-Faridabad Satta Result
+gali disawar ghaziabad
+faridabad ghaziabad gali disawar
+गाजियाबाद सट्टा खबर
+फरीदाबाद सट्टा रिजल्ट
+satta result 786
 इसके अलावा gali disawar ghaziabad  और दूसरे related updates भी regularly available रहते हैं।
 हर game के लिए अलग chart section दिया गया है, जहाँ आप easily latest result और historical data check कर सकते हैं।` },
   { title: 'A786 Satta Charts को समझना', content: `A786 Satta के charts इस तरह design किए गए हैं कि कोई भी user आसानी से past data को समझ सके। Chart page पर results को day-wise, month-wise और year-wise organized किया जाता है।

@@ -173,7 +173,7 @@ export default async function HomePage() {
               className="font-display text-3xl tracking-wide leading-none"
               style={{ color: '#111100' }}
             >
-              {todayStr.toUpperCase()}
+              A786 Satta Results for {todayStr.toUpperCase()}
             </h1>
             <div className="gold-divider mt-3" />
           </div>

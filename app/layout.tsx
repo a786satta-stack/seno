@@ -8,29 +8,36 @@ import Script from 'next/script'
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.a786satta.com'),
 
-  title: 'A786 Satta Result Today | Live Gali Disawar Faridabad Ghaziabad Result',
+  title: 'A786 Satta – Satta 786, Ghaziabad, Gali & Disawar Results',
+
   description:
-    'Check A786 Satta Result Today with live Gali, Disawar, Faridabad and Ghaziabad results, updated charts, old record charts, jodi charts and daily market updates in one place.',
+    'A786 Satta provides updated Satta 786, Ghaziabad, Gali and Disawar results, daily charts and market updates in one place.',
 
   keywords: [
-    'A786 satta',
-    'satta results',
-    'satta charts',
-    'Disawar result',
-    'delhi disawar satta',
-    'disawar satta result',
-    'gali disawar satta',
-    'Faridabad result',
-    'ghaziabad satta chart',
-    'ghaziabad satta result',
-    'disawar satta result',
-    'gali disawar satta result',
-    'gali disawar satta',
-    'ghaziabad satta',
-    'satta ghaziabad​',
+    'A786 Satta',
+    'Satta 786',
+    'Satta Results',
+    'Satta Charts',
+    'Ghaziabad Satta',
+    'Ghaziabad Satta Result',
+    'Ghaziabad Satta Chart',
+    'Satta Ghaziabad',
+    'Gali Satta',
+    'Gali Result',
+    'Gali Satta Result',
+    'Disawar Satta',
+    'Disawar Result',
+    'Disawar Satta Result',
+    'Gali Disawar Satta',
+    'Gali Disawar Satta Result',
+    'Delhi Disawar Satta',
+    'Faridabad Result',
   ],
 
-  robots: 'index, follow',
+  robots: {
+    index: true,
+    follow: true,
+  },
 
   alternates: {
     canonical: 'https://www.a786satta.com/',
@@ -39,9 +46,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://www.a786satta.com/',
-    title: 'A786 Satta Results & Charts',
+    title: 'A786 Satta – Satta 786, Ghaziabad, Gali & Disawar Results',
     description:
-      'Latest results, charts and fast updates available online.',
+      'A786 Satta provides updated Satta 786, Ghaziabad, Gali and Disawar results, daily charts and market updates.',
     siteName: 'A786 Satta',
     locale: 'en_IN',
     images: [
@@ -49,16 +56,16 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'A786 Satta Results Preview',
+        alt: 'A786 Satta Results and Charts',
       },
     ],
   },
 
   twitter: {
     card: 'summary_large_image',
-    title: 'A786 Satta Results & Charts',
+    title: 'A786 Satta – Satta 786, Ghaziabad, Gali & Disawar Results',
     description:
-      'Check latest results and charts with fast updates.',
+      'A786 Satta provides updated Satta 786, Ghaziabad, Gali and Disawar results, daily charts and market updates.',
     images: ['/og-image.jpg'],
   },
 
@@ -90,25 +97,45 @@ export default function RootLayout({
       <head>
         {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
+
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+
         <link
           href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap"
           rel="stylesheet"
         />
+
+        {/* WebSite Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'A786 Satta',
+              alternateName: 'A786Satta',
+              url: 'https://www.a786satta.com/',
+            }),
+          }}
+        />
       </head>
 
       <body>
-        <SessionProvider>{children}</SessionProvider>
+        <SessionProvider>
+          {children}
+        </SessionProvider>
 
+        {/* WhatsApp Button */}
         <WhatsAppButton
           phone="919485519859"
           message="Hello! I have a query about A786 results."
         />
 
+        {/* Toast Notifications */}
         <Toaster
           position="top-center"
           toastOptions={{
@@ -127,103 +154,22 @@ export default function RootLayout({
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-2S9DL0HKFJ"
         />
+
         <Script
           id="google-analytics"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
+
+              function gtag() {
+                dataLayer.push(arguments);
+              }
+
               gtag('js', new Date());
+
               gtag('config', 'G-2S9DL0HKFJ');
             `,
-          }}
-        />
-
-        {/* Breadcrumb Schema */}
-        <Script
-          id="breadcrumb-schema"
-          type="application/ld+json"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org/",
-              "@type": "BreadcrumbList",
-              itemListElement: [
-                {
-                  "@type": "ListItem",
-                  position: 1,
-                  name: "Home",
-                  item: "https://www.a786satta.com/"
-                },
-                {
-                  "@type": "ListItem",
-                  position: 2,
-                  name: "Blog",
-                  item: "https://www.a786satta.com/blog"
-                },
-                {
-                  "@type": "ListItem",
-                  position: 3,
-                  name: "Kuber City",
-                  item: "https://www.a786satta.com/chart/kuber-city"
-                },
-                {
-                  "@type": "ListItem",
-                  position: 4,
-                  name: "Noida City",
-                  item: "https://www.a786satta.com/chart/noida-city"
-                },
-                {
-                  "@type": "ListItem",
-                  position: 5,
-                  name: "Sadar Bazar",
-                  item: "https://www.a786satta.com/chart/sadar-bazar"
-                },
-                {
-                  "@type": "ListItem",
-                  position: 6,
-                  name: "Gwalior",
-                  item: "https://www.a786satta.com/chart/gwalior"
-                },
-                {
-                  "@type": "ListItem",
-                  position: 7,
-                  name: "Delhi Bazar",
-                  item: "https://www.a786satta.com/chart/delhi-bazar"
-                },
-                {
-                  "@type": "ListItem",
-                  position: 8,
-                  name: "Shri Ganesh",
-                  item: "https://www.a786satta.com/chart/shri-ganesh"
-                },
-                {
-                  "@type": "ListItem",
-                  position: 9,
-                  name: "Faridabad",
-                  item: "https://www.a786satta.com/chart/faridabad"
-                },
-                {
-                  "@type": "ListItem",
-                  position: 10,
-                  name: "Alwar",
-                  item: "https://www.a786satta.com/chart/alwar"
-                },
-                {
-                  "@type": "ListItem",
-                  position: 11,
-                  name: "Gali",
-                  item: "https://www.a786satta.com/chart/gali"
-                },
-                {
-                  "@type": "ListItem",
-                  position: 12,
-                  name: "Disawar",
-                  item: "https://www.a786satta.com/chart/disawar"
-                }
-              ]
-            }),
           }}
         />
       </body>

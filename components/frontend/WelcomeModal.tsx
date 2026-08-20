@@ -99,14 +99,14 @@ export default function WelcomeModal() {
             className="mb-2 text-3xl font-display tracking-wide"
             style={{ color: '#111100' }}
           >
-            A786 Satta में आपका स्वागत है|
+            A786 Satta Results में आपका स्वागत है|
           </h2>
 
           <p
             className="mb-8 font-mono text-sm leading-relaxed"
             style={{ color: '#7a6a10' }}
           >
-            गेम शुरू करने के लिए नीचे दिए गए WhatsApp बटन पर क्लिक करें। आपको तुरंत एंट्री और सभी ज़रूरी अपडेट वहीं मिल जाएंगे।
+            A786 Satta के लेटेस्ट रिजल्ट, Satta 786 चार्ट और जरूरी अपडेट के लिए नीचे दिए गए WhatsApp बटन पर क्लिक करें। सभी अपडेट एक ही जगह प्राप्त करें।
           </p>
 
           <div className="flex w-full flex-col gap-3">
