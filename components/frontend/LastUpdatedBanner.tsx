@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-
+//1
 interface Props {
   gameName: string
   resultNumber: string
