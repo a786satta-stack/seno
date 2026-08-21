@@ -1,5 +1,5 @@
 export const dynamic = 'force-dynamic'
-
+//1
 import { dbConnect } from '@/lib/db'
 import { Game } from '@/models/Game'
 import { Result } from '@/models/Result'
