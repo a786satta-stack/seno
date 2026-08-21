@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import { X } from 'lucide-react'
 
-// 1Extend the Window interface to include gtag for analytics
+// 2Extend the Window interface to include gtag for analytics
 declare global {
   interface Window {
     gtag?: (
