@@ -113,13 +113,13 @@ export default function WelcomeModal() {
 
             {/* WhatsApp Button 1 */}
             <a
-              href="https://wa.me/+447478033772"
+              href="https://wa.me/+12295989178"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
                 handleWhatsAppClick(
                   "Alert Button 1",
-                  "+447478033772"
+                  "+12295989178"
                 );
               }}
               className="flex items-center justify-center gap-3 py-3 px-6 rounded-xl font-bold text-white touch-fb transition-transform active:scale-95"
