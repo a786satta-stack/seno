@@ -1,46 +1,179 @@
-//1
 const SECTIONS = [
-  { title: 'A786 Satta क्या है?', content: `A786 Satta Website एक trusted online platform है जहाँ आपको सभी popular satta games के latest results, live updates और detailed charts एक ही जगह पर मिलते हैं। यह platform खासतौर पर उन users के लिए बनाया गया है जो daily basis पर accurate और fast satta updates देखना चाहते हैं।
-यहाँ पर आप आसानी से Faridabad Satta Result,ghaziabad satta, फरीदाबाद सट्टा, ghaziabad satta result, सट्टा गाजियाबाद, Gali Satta Result, और Disawar Satta Result जैसी important updates real-time में check कर सकते हैं।` },
-  { title: 'A786 Satta Results कैसे काम करते हैं?', content: `A786 Satta पर results एक structured और easy-to-understand format में दिखाए जाते हैं, जिससे users बिना confusion के latest updates check कर सकें। जब भी किसी game का result announce होता है, उसे तुरंत chart section में update कर दिया जाता है।
-Users daily basis पर Faridabad Satta Live Result, Ghaziabad Satta Live  Result, Gali Satta Live Result, और Disawar Satta Live Result जैसे results देखने के लिए platform visit करते हैं। इसी तरह, gali satta live result और Ghaziabad Satta Result भी real-time में update किए जाते हैं ताकि कोई delay न हो।
-हर result को simple numeric format में show किया जाता है, जिससे user जल्दी से verify कर सके कि उनका selected number match हुआ है या नहीं।` },
-  { title: 'Game System कैसे काम करता है?', content: `यह system 00 से 99 तक के numbers पर आधारित होता है। Users किसी एक number को select करते हैं और result आने के बाद वही number open होने पर return मिलता है।
-आजकल लोग daily updates के लिए ये terms search करते हैं:
-<a href="https://www.a786satta.com/chart/faridabad">Faridabad Satta Result</a>
-<a href="https://www.a786satta.com/chart/game-1773938625817">Ghaziabad Satta Result</a>
-Gali Satta Result
-<a href="https://www.a786satta.com/chart/disawar">Disawar Satta Result</a>
-A786 Satta इन सभी updates को fast और structured तरीके से provide करता है।` },
-  { title: 'A786 Satta पर Covered Games', content: `A786 Satta पर सभी major number-based games के results और charts regularly update होते हैं। Platform पर आपको multiple categories मिलती हैं, जैसे:
-<a href="https://www.a786satta.com/chart/delhi-bazar">Delhi Bazar Satta Result</a>
-gali disawar ghaziabad
-faridabad ghaziabad gali disawar
-गाजियाबाद सट्टा खबर
-फरीदाबाद सट्टा रिजल्ट
-satta result 786
-इसके अलावा gali disawar ghaziabad  और दूसरे related updates भी regularly available रहते हैं।
-हर game के लिए अलग chart section दिया गया है, जहाँ आप easily latest result और historical data check कर सकते हैं।` },
-  { title: 'A786 Satta Charts को समझना', content: `A786 Satta के charts इस तरह design किए गए हैं कि कोई भी user आसानी से past data को समझ सके। Chart page पर results को day-wise, month-wise और year-wise organized किया जाता है।
-Users अक्सर Faridabad Satta Chart, Ghaziabad Satta Chart, Gali Satta Chart और Disawar Satta Chart  को check करते हैं ताकि वो पुराने results compare कर सकें। इसी तरह Gali Disawar  Live Satta Result history भी chart form में available रहती है।
-इस structured format की वजह से users को data समझने में आसानी होती है और उन्हें अलग-अलग sources पर जाने की जरूरत नहीं पड़ती।` },
-  { title: 'A786 Satta पर Users का Trust क्यों है?', content: `Users किसी भी platform को तभी trust करते हैं जब उन्हें accurate और timely information मिले। A786 Satta का main focus यही है कि हर result और chart update सही और clear तरीके से दिया जाए।
-Platform की reliability के कुछ key factors:
-Regularly updated charts जैसे Disawar Satta Chart
-Fast result updates जैसे gali satta result और faridabad satta result
-Organized records जैसे gajiyabad satta results
-Simple presentation जिससे users आसानी से समझ सकें
-यही वजह है कि users daily basis पर Faridabad Satta Result, Ghaziabad Satta Result, Gali Satta Result, और Disawar Satta Result जैसे sections check करने के लिए A786 Satta पर आते हैं।` },
+  {
+    title: 'A786 Satta क्या है?',
+    content: (
+      <>
+        <p>
+          <strong>A786Satta</strong> एक online results and charts platform है
+          जहाँ popular markets के latest results, daily updates और historical
+          charts एक ही जगह पर उपलब्ध हैं। Website को simple और organized
+          format में बनाया गया है ताकि users relevant information आसानी से
+          find कर सकें।
+        </p>
+
+        <p className="mt-3">
+          यहाँ Faridabad, Ghaziabad, Gali और Disawar जैसे popular sections के
+          results और chart information उपलब्ध हैं।
+        </p>
+      </>
+    ),
+  },
+
+  {
+    title: 'A786 Satta Results कैसे काम करते हैं?',
+    content: (
+      <>
+        <p>
+          <strong>A786 Satta</strong> पर results को structured और
+          easy-to-understand format में organize किया जाता है। अलग-अलग markets
+          के लिए dedicated chart pages दिए गए हैं, जिससे users relevant
+          information आसानी से access कर सकें।
+        </p>
+
+        <p className="mt-3">
+          Website पर Faridabad, Ghaziabad, Gali और Disawar से संबंधित result
+          pages और historical chart information उपलब्ध है।
+        </p>
+      </>
+    ),
+  },
+
+  {
+    title: 'Popular Result Sections',
+    content: (
+      <>
+        <p>
+          A786 Satta पर अलग-अलग popular result categories के लिए dedicated
+          sections उपलब्ध हैं। Visitors अपनी जरूरत के अनुसार संबंधित chart
+          page पर जाकर information देख सकते हैं।
+        </p>
+
+        <div className="mt-3 flex flex-col gap-2">
+          <a
+            href="/chart/faridabad"
+            className="font-semibold underline"
+          >
+            Faridabad Satta Result
+          </a>
+
+          <a
+            href="/chart/game-1773938625817"
+            className="font-semibold underline"
+          >
+            Ghaziabad Satta Result
+          </a>
+
+          <a
+            href="/chart/gali"
+            className="font-semibold underline"
+          >
+            Gali Satta Result
+          </a>
+
+          <a
+            href="/chart/disawar"
+            className="font-semibold underline"
+          >
+            Disawar Satta Result
+          </a>
+
+          <a
+            href="/chart/delhi-bazar"
+            className="font-semibold underline"
+          >
+            Delhi Bazar Result
+          </a>
+        </div>
+      </>
+    ),
+  },
+
+  {
+    title: 'A786 Satta Charts को समझना',
+    content: (
+      <>
+        <p>
+          A786 Satta के chart pages को इस तरह organize किया गया है कि visitors
+          अलग-अलग dates और periods की available information आसानी से देख सकें।
+          Historical chart data को relevant sections में रखा गया है ताकि
+          navigation simple रहे।
+        </p>
+
+        <p className="mt-3">
+          Popular chart sections में Faridabad, Ghaziabad, Gali और Disawar
+          शामिल हैं। प्रत्येक section का dedicated page है, जिससे visitors
+          संबंधित information तक सीधे पहुँच सकते हैं।
+        </p>
+      </>
+    ),
+  },
+
+  {
+    title: 'Faridabad, Ghaziabad, Gali और Disawar Results',
+    content: (
+      <>
+        <p>
+          <strong>A786 Satta</strong> पर Faridabad, Ghaziabad, Gali और Disawar
+          के लिए अलग-अलग result और chart sections उपलब्ध हैं। इससे visitors
+          अपनी पसंद के market से संबंधित information को आसानी से access कर
+          सकते हैं।
+        </p>
+
+        <p className="mt-3">
+          प्रत्येक section में relevant results और available historical chart
+          information को organized format में प्रस्तुत किया जाता है।
+        </p>
+      </>
+    ),
+  },
+
+  {
+    title: 'A786 Satta पर Information क्यों देखें?',
+    content: (
+      <>
+        <p>
+          A786 Satta का focus results और chart information को clear और
+          organized format में present करना है। Dedicated pages और simple
+          navigation visitors को relevant section तक जल्दी पहुँचने में मदद
+          करते हैं।
+        </p>
+
+        <ul className="mt-3 list-disc pl-5 space-y-1">
+          <li>Dedicated result and chart sections</li>
+          <li>Faridabad, Ghaziabad, Gali और Disawar categories</li>
+          <li>Organized historical chart information</li>
+          <li>Simple website navigation</li>
+        </ul>
+      </>
+    ),
+  },
 ]
 
 export default function SeoContent() {
   return (
     <div className="mt-8">
-      {SECTIONS.map((s, i) => (
-        <div key={i} className="mb-1">
-          <div className="section-bar"><h2>{s.title.toUpperCase()}</h2></div>
-          <div className="px-4 py-4" style={{ background: '#fff', borderBottom: '2px solid #FFE000' }}>
-            <p style={{ fontSize: 14, lineHeight: 1.7, color: '#3a3000' }}>{s.content}</p>
+      {SECTIONS.map((section, index) => (
+        <div key={index} className="mb-1">
+          <div className="section-bar">
+            <h2>{section.title}</h2>
+          </div>
+
+          <div
+            className="px-4 py-4"
+            style={{
+              background: '#fff',
+              borderBottom: '2px solid #FFE000',
+            }}
+          >
+            <div
+              style={{
+                fontSize: 14,
+                lineHeight: 1.7,
+                color: '#3a3000',
+              }}
+            >
+              {section.content}
+            </div>
           </div>
         </div>
       ))}
