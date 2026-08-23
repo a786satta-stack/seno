@@ -1,4 +1,5 @@
 export const dynamic = 'force-dynamic'
+
 //1
 import { dbConnect } from '@/lib/db'
 import { Game } from '@/models/Game'
@@ -73,12 +74,25 @@ async function getData() {
     resultNumber: todayMap[g.slug] ?? '--',
   }))
 
-  return { games, todayMap, yesterdayMap, lastR, lastGame, tickerItems }
+  return {
+    games,
+    todayMap,
+    yesterdayMap,
+    lastR,
+    lastGame,
+    tickerItems,
+  }
 }
 
 export default async function HomePage() {
-  const { games, todayMap, yesterdayMap, lastR, lastGame, tickerItems } =
-    await getData()
+  const {
+    games,
+    todayMap,
+    yesterdayMap,
+    lastR,
+    lastGame,
+    tickerItems,
+  } = await getData()
 
   const todayStr = new Date().toLocaleDateString('en-IN', {
     timeZone: 'Asia/Kolkata',
@@ -97,7 +111,8 @@ export default async function HomePage() {
         color: '#991b1b',
       }}
     >
-      ⚠️ For entertainment &amp; informational purposes only. Gambling may be illegal in your jurisdiction.
+      ⚠️ For entertainment &amp; informational purposes only. Gambling may be
+      illegal in your jurisdiction.
     </div>
   )
 
@@ -155,6 +170,7 @@ export default async function HomePage() {
   return (
     <div className="min-h-dvh grid-bg" style={{ background: '#FFFFFF' }}>
       <Header tickerItems={tickerItems} />
+
       <WelcomeModal />
 
       <main className="pb-safe" style={{ width: '100%' }}>
@@ -162,6 +178,10 @@ export default async function HomePage() {
           className="px-3 md:px-8 pb-6 w-full"
           style={{ maxWidth: 1200, margin: '0 auto' }}
         >
+          {/* =========================================
+              BRAND-FIRST HOMEPAGE HEADING
+              Layout/spacing preserved
+          ========================================== */}
           <div className="py-4 text-center">
             <div
               className="font-mono text-[10px] uppercase tracking-widest mb-1"
@@ -169,28 +189,47 @@ export default async function HomePage() {
             >
               Today's Results
             </div>
+
+            {/* Primary brand heading */}
             <h1
               className="font-display text-3xl tracking-wide leading-none"
               style={{ color: '#111100' }}
             >
-              A786 Satta Results for {todayStr.toUpperCase()}
+              A786 Satta
             </h1>
+
+            {/* Supporting topical text */}
+            <div
+              className="font-mono text-[11px] tracking-wide mt-2"
+              style={{ color: '#555555' }}
+            >
+              Satta 786 Results for {todayStr.toUpperCase()}
+            </div>
+
             <div className="gold-divider mt-3" />
           </div>
 
           {/* MOBILE */}
           <div className="md:hidden">
             {bannerSection}
+
             <NextThreeGames />
+
             <SocialChannels
               whatsappLink="https://whatsapp.com/channel/0029VbCHriDFCCoWbzrHyk0b"
               telegramLink="https://t.me/a786result"
             />
+
             <KhaiwaalSection />
+
             {numberUpdate}
+
             {disclaimer}
+
             {resultsGrid}
+
             <SeoContent />
+
             <FaqSection />
           </div>
 
@@ -198,18 +237,26 @@ export default async function HomePage() {
           <div className="hidden md:grid md:grid-cols-3 md:gap-6 md:items-start">
             <div className="md:col-span-2 space-y-4">
               {bannerSection}
+
               <NextThreeGames />
+
               {disclaimer}
+
               {numberUpdate}
+
               {resultsGrid}
+
               <SeoContent />
+
               <FaqSection />
             </div>
+
             <div className="md:col-span-1 space-y-4">
               <SocialChannels
                 whatsappLink="https://whatsapp.com/channel/0029VbCHriDFCCoWbzrHyk0b"
                 telegramLink="https://t.me/a786result"
               />
+
               <KhaiwaalSection />
             </div>
           </div>

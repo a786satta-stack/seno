@@ -1,4 +1,3 @@
-//1
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { Toaster } from 'react-hot-toast'
@@ -6,75 +5,101 @@ import SessionProvider from '@/components/SessionProvider'
 import WhatsAppButton from '@/components/WhatsAppButton'
 import Script from 'next/script'
 
-export const metadata: Metadata = {
-  metadataBase: new URL('https://www.a786satta.com'),
+const SITE_URL = 'https://www.a786satta.com'
+const BRAND_NAME = 'A786 Satta'
+const BRAND_ALTERNATE_NAME = 'A786Satta'
 
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+
+  /*
+   * PRIMARY BRAND TITLE
+   * Keep the exact brand at the beginning.
+   */
   title: 'A786 Satta – Satta 786, Ghaziabad, Gali & Disawar Results',
 
   description:
     'A786 Satta provides updated Satta 786, Ghaziabad, Gali and Disawar results, daily charts and market updates in one place.',
 
-  keywords: [
-    'A786 Satta',
-    'Satta 786',
-    'Satta Results',
-    'Satta Charts',
-    'Ghaziabad Satta',
-    'Ghaziabad Satta Result',
-    'Ghaziabad Satta Chart',
-    'Satta Ghaziabad',
-    'Gali Satta',
-    'Gali Result',
-    'Gali Satta Result',
-    'Disawar Satta',
-    'Disawar Result',
-    'Disawar Satta Result',
-    'Gali Disawar Satta',
-    'Gali Disawar Satta Result',
-    'Delhi Disawar Satta',
-    'Faridabad Result',
-  ],
+  /*
+   * Used by browsers/apps.
+   */
+  applicationName: BRAND_NAME,
 
+  /*
+   * Keep indexing enabled.
+   */
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
   },
 
+  /*
+   * One single canonical homepage URL.
+   */
   alternates: {
-    canonical: 'https://www.a786satta.com/',
+    canonical: `${SITE_URL}/`,
   },
 
+  /*
+   * Open Graph
+   */
   openGraph: {
     type: 'website',
-    url: 'https://www.a786satta.com/',
-    title: 'A786 Satta – Satta 786, Ghaziabad, Gali & Disawar Results',
+    url: `${SITE_URL}/`,
+    siteName: BRAND_NAME,
+
+    title:
+      'A786 Satta – Satta 786, Ghaziabad, Gali & Disawar Results',
+
     description:
-      'A786 Satta provides updated Satta 786, Ghaziabad, Gali and Disawar results, daily charts and market updates.',
-    siteName: 'A786 Satta',
+      'A786 Satta provides updated Satta 786, Ghaziabad, Gali and Disawar results, daily charts and market updates in one place.',
+
     locale: 'en_IN',
+
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'A786 Satta Results and Charts',
+        alt: 'A786 Satta',
       },
     ],
   },
 
+  /*
+   * Twitter/X metadata
+   */
   twitter: {
     card: 'summary_large_image',
-    title: 'A786 Satta – Satta 786, Ghaziabad, Gali & Disawar Results',
+
+    title:
+      'A786 Satta – Satta 786, Ghaziabad, Gali & Disawar Results',
+
     description:
-      'A786 Satta provides updated Satta 786, Ghaziabad, Gali and Disawar results, daily charts and market updates.',
+      'A786 Satta provides updated Satta 786, Ghaziabad, Gali and Disawar results, daily charts and market updates in one place.',
+
     images: ['/og-image.jpg'],
   },
 
+  /*
+   * Icons
+   */
   icons: {
     icon: '/favicon.ico',
     apple: '/favicon.ico',
   },
 
+  /*
+   * Google Search Console verification
+   */
   verification: {
     google: 'FQnDbziZqpv5K3pyLiPOpDQc9m9g2aKl6anLQmQx8xk',
   },
@@ -94,9 +119,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <head>
-        {/* Google Fonts */}
+        {/* ================================
+            Google Fonts
+        ================================= */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
 
         <link
@@ -110,16 +137,40 @@ export default function RootLayout({
           rel="stylesheet"
         />
 
-        {/* WebSite Schema */}
+        {/* ================================
+            WEBSITE / BRAND SCHEMA
+        ================================= */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'WebSite',
-              name: 'A786 Satta',
-              alternateName: 'A786Satta',
-              url: 'https://www.a786satta.com/',
+              '@id': `${SITE_URL}/#website`,
+              name: BRAND_NAME,
+              alternateName: BRAND_ALTERNATE_NAME,
+              url: `${SITE_URL}/`,
+            }),
+          }}
+        />
+
+        {/* ================================
+            ORGANIZATION SCHEMA
+        ================================= */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              '@id': `${SITE_URL}/#organization`,
+              name: BRAND_NAME,
+              alternateName: BRAND_ALTERNATE_NAME,
+              url: `${SITE_URL}/`,
+              logo: {
+                '@type': 'ImageObject',
+                url: `${SITE_URL}/og-image.jpg`,
+              },
             }),
           }}
         />
@@ -130,13 +181,17 @@ export default function RootLayout({
           {children}
         </SessionProvider>
 
-        {/* WhatsApp Button */}
+        {/* ================================
+            WhatsApp Button
+        ================================= */}
         <WhatsAppButton
           phone="919485519859"
           message="Hello! I have a query about A786 results."
         />
 
-        {/* Toast Notifications */}
+        {/* ================================
+            Toast Notifications
+        ================================= */}
         <Toaster
           position="top-center"
           toastOptions={{
@@ -150,7 +205,9 @@ export default function RootLayout({
           }}
         />
 
-        {/* Google Analytics */}
+        {/* ================================
+            Google Analytics
+        ================================= */}
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-2S9DL0HKFJ"

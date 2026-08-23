@@ -1,12 +1,10 @@
-//1
-
 const SECTIONS = [
   {
     title: 'A786 Satta क्या है?',
     content: (
       <>
         <p>
-          <strong>A786Satta</strong> एक online results and charts platform है
+          <strong>A786 Satta</strong> एक online results and charts platform है
           जहाँ popular markets के latest results, daily updates और historical
           charts एक ही जगह पर उपलब्ध हैं। Website को simple और organized
           format में बनाया गया है ताकि users relevant information आसानी से
@@ -45,9 +43,9 @@ const SECTIONS = [
     content: (
       <>
         <p>
-          A786 Satta पर अलग-अलग popular result categories के लिए dedicated
-          sections उपलब्ध हैं। Visitors अपनी जरूरत के अनुसार संबंधित chart
-          page पर जाकर information देख सकते हैं।
+          <strong>A786 Satta</strong> पर अलग-अलग popular result categories के
+          लिए dedicated sections उपलब्ध हैं। Visitors अपनी जरूरत के अनुसार
+          संबंधित chart page पर जाकर information देख सकते हैं।
         </p>
 
         <div className="mt-3 flex flex-col gap-2">
@@ -95,10 +93,10 @@ const SECTIONS = [
     content: (
       <>
         <p>
-          A786 Satta के chart pages को इस तरह organize किया गया है कि visitors
-          अलग-अलग dates और periods की available information आसानी से देख सकें।
-          Historical chart data को relevant sections में रखा गया है ताकि
-          navigation simple रहे।
+          <strong>A786 Satta</strong> के chart pages को इस तरह organize किया गया
+          है कि visitors अलग-अलग dates और periods की available information
+          आसानी से देख सकें। Historical chart data को relevant sections में
+          रखा गया है ताकि navigation simple रहे।
         </p>
 
         <p className="mt-3">
@@ -134,10 +132,10 @@ const SECTIONS = [
     content: (
       <>
         <p>
-          A786 Satta का focus results और chart information को clear और
-          organized format में present करना है। Dedicated pages और simple
-          navigation visitors को relevant section तक जल्दी पहुँचने में मदद
-          करते हैं।
+          <strong>A786 Satta</strong> का focus results और chart information को
+          clear और organized format में present करना है। Dedicated pages और
+          simple navigation visitors को relevant section तक जल्दी पहुँचने में
+          मदद करते हैं।
         </p>
 
         <ul className="mt-3 list-disc pl-5 space-y-1">
