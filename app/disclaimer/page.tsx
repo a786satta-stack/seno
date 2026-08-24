@@ -2,7 +2,7 @@ import Header from '@/components/frontend/Header'
 import Footer from '@/components/frontend/Footer'
 
 export const metadata = {
-  title: 'Disclaimer | Website Usage Terms A786 Satta',
+  title: 'Disclaimer | A786 Satta | Fast Live Satta Results',
   description: 'Visit the Disclaimer page on A786 Satta to understand website usage terms, result information policy, content limitations, and important user guidelines before using the platform.',
 }
 

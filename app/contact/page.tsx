@@ -3,7 +3,7 @@ import Footer from '@/components/frontend/Footer'
 
 export const metadata = {
   title: 'Contact Us | Get Support About A786 Satta',
-  description: 'Contact us for website support, result-related queries, chart information, or general assistance. Reach out easily for help regarding updates, records, and platform details.',
+  description: 'Contact A786 Satta for website support, result-related queries, chart information, or general assistance. Reach out easily for help regarding updates, records, and platform details.',
 }
 
 export default function ContactPage() {
