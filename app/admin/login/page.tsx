@@ -41,7 +41,7 @@ export default function AdminLoginPage() {
             SK
           </div>
           <h1 className="font-display text-3xl text-text tracking-wide">ADMIN PANEL</h1>
-          <p className="text-muted text-sm font-mono mt-1">Satta King Results Manager</p>
+          <p className="text-muted text-sm font-mono mt-1">A786 Satta Results Manager</p>
         </div>
 
         {/* Form card */}

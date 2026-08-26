@@ -1,4 +1,4 @@
-# Satta King Results — Next.js App
+# A786 Satta — Next.js App
 
 A mobile-first results platform built with **Next.js 14**, **Tailwind CSS**, and **MongoDB**.
 

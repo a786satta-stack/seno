@@ -92,7 +92,7 @@ export default async function ResultsPage() {
                 className="font-display text-lg tracking-wide"
                 style={{ color: '#111100' }}
               >
-                SATTA KING RESULT
+                A786 SATTA RESULT
               </span>
               <div className="flex items-center gap-1.5">
                 <span className="live-dot" />
