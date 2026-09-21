@@ -1,4 +1,4 @@
-```tsx
+//tsx
 const SECTIONS = [
   {
     title: 'Satta 786 क्या है?',
