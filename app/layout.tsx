@@ -188,7 +188,7 @@ export default function RootLayout({
         ================================= */}
         <WhatsAppButton
           phone="15812035395"
-          message="Hello! I have a query about A786 results."
+          message="नमस्कार सर, हमें आपकी गेम के बारे में जानकारी चाहिए।"
         />
 
         {/* ================================
