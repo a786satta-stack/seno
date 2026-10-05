@@ -113,7 +113,7 @@ export default function WelcomeModal() {
 
             {/* WhatsApp Button 1 */}
             <a
-              href="https://wa.me/+1249455829"
+              href="https://wa.me/+12494558299"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
