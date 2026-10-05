@@ -27,7 +27,7 @@ const GAME_TIMINGS = [
   { name: 'दिसावर', time: '05:10 AM', emoji: '⭐' },
 ]
 const KHAIWALS = [
-  { title: 'सीधे सट्टा कंपनी का No 1 खाईवाल', name: 'AZAD BHAI KHAIWAL',  phone: '+639678290455', color: '#FF6B00' },
+  { title: 'सीधे सट्टा कंपनी का No 1 खाईवाल', name: 'AZAD BHAI KHAIWAL',  phone: '+12494558299', color: '#FF6B00' },
   { title: 'सीधे सट्टा कंपनी का No 1 खाईवाल', name: 'RADHE BHAI KHAIWAL', phone: '+918059550986', color: '#7C3AED' },
 ]
 
