@@ -7,7 +7,7 @@
     }
   }
 
-  export default function WhatsAppButton({ phone = '+917988767403', message = 'Hello!' }: { phone?: string; message?: string }) {
+  export default function WhatsAppButton({ phone = '+919588192706', message = 'Hello!' }: { phone?: string; message?: string }) {
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
 
     const handleClick = () => {
