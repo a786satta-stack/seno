@@ -119,7 +119,7 @@ export default function WelcomeModal() {
               onClick={() => {
                 handleWhatsAppClick(
                   "Alert Button 1",
-                  "‪+917015610659‬"
+                  "‪+917015610659"
                 );
               }}
               className="flex items-center justify-center gap-3 py-3 px-6 rounded-xl font-bold text-white touch-fb transition-transform active:scale-95"
