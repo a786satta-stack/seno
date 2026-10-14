@@ -187,7 +187,7 @@ export default function RootLayout({
             WhatsApp Button
         ================================= */}
         <WhatsAppButton
-          phone="+919588192706"
+          phone="+919992018489"
           message="नमस्कार सर हमे आपकी गेम के बारे मै जानकारी चाहिए है कृपया करके आपका चार्ट ओर स्कैनर डाले।।।।।।।"
         />
 
